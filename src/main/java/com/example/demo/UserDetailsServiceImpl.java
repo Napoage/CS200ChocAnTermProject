@@ -1,3 +1,5 @@
+/**
+
 package com.example.demo;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Depreciated
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
@@ -22,3 +25,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());
     }
 }
+
+*/
