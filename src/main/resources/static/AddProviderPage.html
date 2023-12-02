@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChocAnAddProviderPage</title>
+  <link rel="stylesheet" href="OperatorMenuSubmissionPageCss.css">
+</head>
+
+<body>
+  <div class="box">
+    <h2>Add Provider</h2>
+    <form id="addProvider-form">
+      <div class="Main-box">
+        <input type="text" name="Name" required="">
+        <label>Provider Name</label>
+      </div>
+      <div class="Main-box">
+        <input type="text" name="Address" required="">
+        <label>Provider Address</label>
+      </div>
+      <div class="Sub-box">
+        <input type="text" name="City" required="">
+        <label>City</label>
+      </div>
+      <div class="Sub-box">
+        <input type="text" name="StateCode" required="">
+        <label>State</label>
+      </div>
+      <div class="Sub-box">
+        <input type="text" name="ZipCode" required="">
+        <label>Zip Code</label>
+      </div>
+      <div class="Main-box">
+        <input type="text" name="Email" required="">
+        <label>Provider Email</label>
+      </div>
+      <div class="button-box">
+        <div class="Main-box">
+        <input type="text" name="userName" required="">
+        <label>Provider Username</label>
+      </div>
+        <div class="Main-box">
+        <input type="text" name="password" required="">
+        <label>Provider Password</label>
+      </div>
+      <div class="button-box">
+        <a href="#" id="submitButton" onclick="handleButtonClick(event)">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+        <div class="popup" id="popup">
+
+          <p>The Provider Was Not Added To Database</p>
+          <button type = "button" id="okButton" onclick="closePopup()">OK</button>
+        </div>
+        <a href="#" id="goBackButton" onclick="handleButtonClick(event)">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Go Back
+        </a>
+      </div>
+
+      <script src="AddMemberOrProviderPageJava.js"></script>
+</body>
+
+</html>

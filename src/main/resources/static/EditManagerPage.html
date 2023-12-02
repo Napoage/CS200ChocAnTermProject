@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChocAnEditManagerPage</title>
+  <link rel="stylesheet" href="OperatorMenuSubmissionPageCss.css">
+</head>
+
+<body>
+  <div class="box">
+    <h2>Edit Manager</h2>
+    <form id="EditManager-form">
+      <div class="Main-box">
+        <input type="text" name="Name" required="">
+        <label>Enter Name</label>
+      </div>
+      <div class="Main-box">
+        <input type="text" name="Username" required="">
+        <label>Confirm/Change Username</label>
+      </div>
+      <div class="Main-box">
+        <input type="text" name="Password" required="">
+        <label>Confirm/Change Password</label>
+      </div>
+      <div class="button-box">
+        <a href="#" id="submitButton" onclick="handleButtonClick(event)">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+        <div class="popup" id="popup">
+
+          <p>The Member Was Not Added To Database</p>
+          <button type = "button" id="okButton" onclick="closePopup()">OK</button>
+        </div>
+        <a href="#" id="goBackButton" onclick="handleButtonClick(event)">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Go Back
+        </a>
+      </div>
+
+      <script src="EditManagerOrOperatorPage.js"></script>
+</body>
+
+</html>
