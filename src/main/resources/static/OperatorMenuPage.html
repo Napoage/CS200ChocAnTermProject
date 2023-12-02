@@ -1,0 +1,67 @@
+</div><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChocAn Operator Menu</title>
+  <link rel="stylesheet" href="OperatorMenuCss.css">
+</head>
+<body>
+<div class='container'>
+  <div class = 'header'>
+  <h1>Operator Menu</h1>
+  </div>
+  <div class = 'buttons'>
+  <div class='dropdown' id='Member-dropdown'>
+    <div class='dropdown-button'> Member </div>
+    <span class='triangle'>&#9660;</span>
+    <ul class='dropdown-selection'>
+      <li id = 'addMember'>Add Member</li>
+      <li id = 'removeMember'>Remove Member</li>
+      <li id = editMember>Edit Member</li>
+    </ul>
+  </div>
+
+  <div class='dropdown' id='Provider-dropdown'>
+    <div class='dropdown-button'> Provider </div>
+    <span class='triangle'>&#9660;</span>
+    <ul class='dropdown-selection'>
+      <li id = 'addProvider'> Add Provider </li>
+      <li id = 'removeProvider'> Remove Provider </li>
+      <li id = 'editProvider'> Edit Provider </li>
+    </ul>
+  </div>
+
+  <div class='dropdown' id='Manager-dropdown'>
+    <div class='dropdown-button'> Manager </div>
+    <span class='triangle'>&#9660;</span>
+    <ul class='dropdown-selection'>
+      <li id = 'addManager'>Add Manager</li>
+      <li id = 'removeManager'>Remove Manager</li>
+      <li id = 'editManager'>Edit Manager</li>
+    </ul>
+  </div>
+
+  <div class='dropdown' id='Operator-dropdown'>
+    <div class='dropdown-button'> Operator </div>
+    <span class='triangle'>&#9660;</span>
+    <ul class='dropdown-selection'>
+      <li id = 'addOperator'>Add Operator</li>
+      <li id = 'removeOperator'>Remove Operator</li>
+      <li id = 'editOperator'>Edit Operator</li>
+    </ul>
+    </div>
+  </div>
+  <div class = 'button'>
+  <a href="#" id="goBackButton" onclick="handleButtonClick(event)">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    Go Back
+  </a>
+  </div>
+</div>
+<script src="OperatorMenuJava.js"></script>
+</body>
+</html>
