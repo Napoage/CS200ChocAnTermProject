@@ -4,12 +4,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.PrePersist;
 
 @Entity
 public class Member {
 
     @Id
-    private String number; // 9-digit member number
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
+    @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
+    private int id;
+
+    @Column(length = 9)
+    private String memberID;
+
     private String name;
     private String email;
     private String streetAddress;
@@ -19,9 +29,9 @@ public class Member {
     private boolean status; // Active or suspended
 
     // Constructor
-    public Member(String memberName, String memberNumber, String memberEmail, String memberStreetAddress, String memberCity, String memberState, String memberZipCode) {
+    public Member(String memberName, String memberEmail, String memberStreetAddress, String memberCity,
+            String memberState, String memberZipCode) {
         this.name = memberName;
-        this.number = memberNumber;
         this.email = memberEmail;
         this.streetAddress = memberStreetAddress;
         this.city = memberCity;
@@ -42,10 +52,6 @@ public class Member {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNumber() {
-        return number;
     }
 
     public String getEmail() {
@@ -94,5 +100,10 @@ public class Member {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    @PrePersist
+    public void generateMemberID() {
+        this.memberID = String.format("%09d", id);
     }
 }

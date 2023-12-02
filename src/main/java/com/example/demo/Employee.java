@@ -10,12 +10,24 @@ import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Transient;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.PrePersist;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "employee_type", discriminatorType = DiscriminatorType.STRING)
 public class Employee {
+    
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
+    @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
+    //@Transient
+    private int id;
+
     @Id
+    @Column(length = 6)
+    private String employeeID;
+
     private String username;
     private String password;
     @Column(name = "employee_type", insertable = false, updatable = false)
@@ -55,6 +67,11 @@ public class Employee {
         OPERATOR,
         MANAGER,
         PROVIDER
+    }
+
+    @PrePersist
+    public void generateEmployeeID() {
+        this.employeeID = String.format("%06d", id);
     }
 }
 

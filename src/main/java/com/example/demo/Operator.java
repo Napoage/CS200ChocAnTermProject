@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 @Table(name = "Operators")
 public class Operator extends Employee {
 
-    private int operatorID;
     private String operatorName;
     private String operatorUserName;
     private String operatorPassword;
@@ -19,7 +18,6 @@ public class Operator extends Employee {
     public Operator(String operatorName, String operatorUserName, String operatorPassword, int operatorID) {
         super(operatorUserName, operatorPassword, EmployeeType.OPERATOR);
         this.operatorName = operatorName;
-        this.operatorID = operatorID;
     }
     public String getOperatorName() {
         return operatorName;
@@ -29,8 +27,5 @@ public class Operator extends Employee {
     }
     public String getOperatorPassword() {
         return operatorPassword;
-    }
-    public int getOperatorID() {
-        return operatorID;
     }
 }

@@ -13,8 +13,6 @@ import jakarta.persistence.Table;
 @Table(name = "Managers")
 public class Manager extends Employee{
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int managerID;
     private String managerName;
     private String managerUserName;
     private String managerPassword;
@@ -22,7 +20,6 @@ public class Manager extends Employee{
     public Manager(String managerName, String managerUserName, String managerPassword, int managerID) {
         super(managerUserName, managerPassword, EmployeeType.MANAGER);
         this.managerName = managerName;
-        this.managerID = managerID;
     }
     
     public String getManagerName() {
@@ -37,10 +34,6 @@ public class Manager extends Employee{
         return managerPassword;
     }
     
-    public int getManagerID() {
-        return managerID;
-    }
-    
     public void setManagerName(String managerName) {
         this.managerName = managerName;
     }
@@ -51,10 +44,6 @@ public class Manager extends Employee{
     
     public void setManagerPassword(String managerPassword) {
         this.managerPassword = managerPassword;
-    }
-    
-    public void setManagerID(int managerID) {
-        this.managerID = managerID;
     }
 }
 // FILEPATH: /c:/Users/Zac-Desktop/Desktop/demo/src/main/java/com/example/demo/Manager.java
