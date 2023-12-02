@@ -1,8 +1,16 @@
 package com.example.demo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Member {
-    private String name;
+
+    @Id
     private String number; // 9-digit member number
+    private String name;
     private String email;
     private String streetAddress;
     private String city;

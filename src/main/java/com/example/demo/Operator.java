@@ -1,9 +1,19 @@
 package com.example.demo;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Operator {
+
+    @Id
+    private int operatorID;
     private String operatorName;
     private String operatorUserName;
     private String operatorPassword;
-    private int operatorID;
+    
     public Operator(String operatorName, String operatorUserName, String operatorPassword, int operatorID) {
         this.operatorName = operatorName;
         this.operatorUserName = operatorUserName;
