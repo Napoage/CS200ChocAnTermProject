@@ -1,14 +1,14 @@
 package com.example.demo;
 
-import java.sql.*;
+/*import java.sql.*;
 import java.util.HashMap;
 
 import java.util.Map;
-
-import org.springframework.http.HttpStatus;
+*/
+//import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,15 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class VerifyUser {
-
-    Statement stmt;
+    @PostMapping("/enterLogin")
+    public ResponseEntity<Integer> enterLogin() {
+        Integer result = 1;
+        return ResponseEntity.ok(result);
+    }
+    
+    /*Statement stmt;
     Connection conn;
     ResultSet resultSet;
-
+    
     /**
      * Represents the login data provided by the user.
      */
-    public static class LoginData{
+   /*  public static class LoginData{
         public String username;
         public String password;
     }
@@ -37,7 +42,7 @@ public class VerifyUser {
      * Handles the login request and verifies the user's credentials.
      * @param loginData The login data provided by the user.
      * @return A ResponseEntity containing the login result.
-     */
+     
     @PostMapping("/enterLogin")
     public ResponseEntity<Map<String, Integer>> enterLogin(@RequestBody LoginData loginData) {
         Integer result;
@@ -72,7 +77,7 @@ public class VerifyUser {
      * @param password the password to be verified
      * @param username the username associated with the password
      * @return true if the password is verified, false otherwise
-     */
+     
     private boolean verifyPassword(String password, String username) {
         if (passQuery(password, username) != true) {
             return false;
@@ -85,7 +90,7 @@ public class VerifyUser {
      * 
      * @param username the username to be checked
      * @return true if the user exists, false otherwise
-     */
+     
     private boolean userQuery(String username) {
         int exists = 0;
         try {
@@ -109,7 +114,7 @@ public class VerifyUser {
      * @param password The password to be verified.
      * @param username The username associated with the password.
      * @return true if the password matches the associated username, false otherwise.
-     */
+     
     private boolean passQuery(String password, String username) {
         String userPass = "";
         try {
@@ -160,5 +165,5 @@ public class VerifyUser {
             return true;
         }
         return false;
-    }
+    }*/
 }

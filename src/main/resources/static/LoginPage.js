@@ -1,9 +1,9 @@
 function handleButtonClick(event) {
     event.preventDefault();
 
-    var usernameIn = document.getElementById('username').value;
-    var passwordIn = document.getElementById('password').value;
-
+    var usernameIn = document.getElementById('username')[0].value;
+    var passwordIn = document.getElementById('password')[0].value;
+    
     var loginData = {
         username: usernameIn,
         password: passwordIn
@@ -18,8 +18,8 @@ function handleButtonClick(event) {
     })
     .then(response => response.json())
     .then(data => {
-        var result = data.loginResult;
-        switch(result) {
+        //var result = data.loginResult;
+        switch(data) {
             case 1:
                 window.location.href = "OperatorMenuPage.html";
                 break;

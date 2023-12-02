@@ -16,7 +16,7 @@ document.getElementById('editManager').addEventListener('click', handleEditManag
 document.getElementById('addOperator').addEventListener('click', handleAddOperator);
 document.getElementById('removeOperator').addEventListener('click', handleRemoveOperator);
 document.getElementById('editOperator').addEventListener('click', handleEditOperator);
-document.getElementById('goBackButton').addEventListener('click', handleGoBack);
+document.getElementById('logOutButton').addEventListener('click', handleLogOut);
 
 
 
@@ -101,7 +101,7 @@ function handleEditOperator() {
 function handleRemoveOperator() {
   handleEntityAction("Operator", "Remove");
 }
-function handleGoBack(event) {
+function handleLogOut(event) {
   event.preventDefault();
   window.location.href = "LoginPage.html";
 }
