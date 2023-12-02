@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class VerifyUser {
     @PostMapping("/enterLogin")
     public ResponseEntity<Integer> enterLogin() {
-        Integer result = 1;
+        Integer result = 2;
         return ResponseEntity.ok(result);
     }
     

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChocAn Provider Menu</title>
+  <link rel="stylesheet" href="ProviderMenuPageCss.css">
+</head>
+
+<body>
+  <div class="Provider-box">
+    <h2>Provider Menu</h2>
+    <form id="Provider-form">
+      <a href="#" id="billChocAnButton" onclick="handleButtonClick(event)">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Bill ChocAn
+      </a>
+      <a href="#" id="providerDirectoryButton" onclick="handleButtonClick(event)">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Email Provider Directory
+      </a>
+      <div class="popup" id="popup">
+
+          <p>The Directory was Successfully Emailed</p>
+          <button type = "button" id="okButton" onclick="closePopup()">OK</button>
+        </div>
+      <a href="#" id="logOutButton" onclick="handleButtonClick(event)">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Log Out
+      </a>
+    </form>
+  </div>
+
+  <script src="ProviderMenuPage.js"></script>
+</body>
+
+</html>
