@@ -5,9 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Table;
 
 @Entity
-@DiscriminatorValue("OPERATOR")
+@Table(name = "Operators")
 public class Operator extends Employee {
 
     private int operatorID;

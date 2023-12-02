@@ -7,9 +7,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Table;
 
 @Entity
-@DiscriminatorValue("MANAGER")
+@Table(name = "Managers")
 public class Manager extends Employee{
 
     @GeneratedValue(strategy = GenerationType.AUTO)
