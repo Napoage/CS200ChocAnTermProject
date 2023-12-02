@@ -103,7 +103,7 @@ function handleRemoveOperator() {
 }
 function handleGoBack(event) {
   event.preventDefault();
-  window.location.href = "DeveloperMenu.html";
+  window.location.href = "LoginPage.html";
 }
 
 

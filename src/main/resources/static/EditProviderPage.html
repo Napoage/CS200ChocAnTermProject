@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChocAnEditProviderPage</title>
+  <link rel="stylesheet" href="OperatorMenuSubmissionPageCss.css">
+</head>
+
+<body>
+  <div class="box">
+    <h2>Edit Provider</h2>
+    <form id="EditProvider-form">
+      <div class="Main-box">
+        <input type="text" name="Name" required="">
+        <label>Enter Provider Name</label>
+      </div>
+      <div class="Main-box">
+        <input type="text" name="Address" required="">
+        <label>Confirm/Edit Provider Address</label>
+      </div>
+      <div class="Sub-box">
+        <input type="text" name="City" required="">
+        <label>City</label>
+      </div>
+      <div class="Sub-box">
+        <input type="text" name="StateCode" required="">
+        <label>State</label>
+      </div>
+      <div class="Sub-box">
+        <input type="text" name="ZipCode" required="">
+        <label>Zip Code</label>
+      </div>
+      <div class="Main-box">
+        <input type="text" name="Email" required="">
+        <label>Confirm/Edit Provider Email</label>
+      </div>
+      <div class="Main-box">
+        <input type="text" name="userName" required="">
+        <label>Confirm/Edit Provider Username</label>
+      </div>
+      <div class="Main-box">
+        <input type="text" name="password" required="">
+        <label>Confirm/Edit Provider Password</label>
+      </div>
+      <div class="button-box">
+      <div class="button-box">
+      <div class="button-box">
+        <a href="#" id="submitButton" onclick="handleButtonClick(event)">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+        <div class="popup" id="popup">
+
+          <p>The Provider Was Not Successfully Added</p>
+          <button type = "button" id="okButton" onclick="closePopup()">OK</button>
+        </div>
+        <a href="#" id="goBackButton" onclick="handleButtonClick(event)">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Go Back
+        </a>
+      </div>
+
+      <script src="EditMemberOrProviderPage.js"></script>
+</body>
+
+</html>
