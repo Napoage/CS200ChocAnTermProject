@@ -25,7 +25,7 @@ public class Employee {
     private int id;
 
     @Id
-    @Column(length = 6)
+    @Column(length = 9)
     private String employeeID;
 
     private String username;
@@ -71,7 +71,7 @@ public class Employee {
 
     @PrePersist
     public void generateEmployeeID() {
-        this.employeeID = String.format("%06d", id);
+        this.employeeID = String.format("%09d", id);
     }
 }
 

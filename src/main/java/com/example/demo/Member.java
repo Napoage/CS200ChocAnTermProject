@@ -28,7 +28,9 @@ public class Member {
     private String email;
     private String streetAddress;
     private String city;
+    @Column(length = 2)
     private String state; // 2-letter state code
+    @Column(length = 5)
     private String zipCode; // 5-digit ZIP code
     private boolean status; // Active or suspended
 
