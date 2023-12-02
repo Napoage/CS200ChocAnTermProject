@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/operator")
-public class OperatorMenu {
+public class OperatorController {
 
     //final level methods call updateMember() and updateEmployee();
     //once member is added prompt to add another member or return to first menu
