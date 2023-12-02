@@ -11,10 +11,15 @@ import jakarta.persistence.Table;
 @Table(name = "Providers")
 public class Provider extends Employee{
     // Define fields for providerName, providerAddress, etc.
+    @Column(length = 25)
     private String providerName;
+    @Column(length = 25)
     private String providerAddress;
+    @Column(length = 14)
     private String providerCity;
+    @Column(length = 2)
     private String providerStateCode;
+    @Column(length = 5)
     private String providerZipCode;
     private String providerEmail;
 
