@@ -15,9 +15,8 @@ public class Operator {
     private String operatorPassword;
     
     public Operator(String operatorName, String operatorUserName, String operatorPassword, int operatorID) {
+        super(OperatorUserName, OperatorPassword, EmployeeType.OPERATOR);
         this.operatorName = operatorName;
-        this.operatorUserName = operatorUserName;
-        this.operatorPassword = operatorPassword;
         this.operatorID = operatorID;
     }
     public String getOperatorName() {

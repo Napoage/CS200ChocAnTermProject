@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javax.annotation.processing.Generated;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,15 +11,15 @@ import jakarta.persistence.Id;
 public class Manager {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int managerID;
     private String managerName;
     private String managerUserName;
     private String managerPassword;
     
     public Manager(String managerName, String managerUserName, String managerPassword, int managerID) {
+        super(managerUserName, managerPassword, EmployeeType.MANAGER);
         this.managerName = managerName;
-        this.managerUserName = managerUserName;
-        this.managerPassword = managerPassword;
         this.managerID = managerID;
     }
     
