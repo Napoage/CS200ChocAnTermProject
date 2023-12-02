@@ -30,31 +30,30 @@ public class OperatorMenu {
         int success = 0;
         return ResponseEntity.ok(success);
     }
-/*
     @PostMapping("/removeMember")
     public ResponseEntity<Integer> removeMemberCall(@RequestBody int memberID) {
-        int success = updateMemberService.removeMember(memberID);
+        int success = 0;
         return ResponseEntity.ok(success);
     }
-
+/* 
     @PostMapping("/editMember")
     public ResponseEntity<Integer> editMemberCall(@RequestBody Member member) {
         int success = updateMemberService.editMember(member);
         return ResponseEntity.ok(success);
     }
-
+*/
     @PostMapping("/addProvider")
     public ResponseEntity<Integer> addProviderCall(@RequestBody Provider provider) {
-        int success = updateProviderServices.addProvider(provider);
+        int success = 0;
         return ResponseEntity.ok(success);
     }
 
     @PostMapping("/removeProvider")
     public ResponseEntity<Integer> removeProviderCall(@RequestBody int providerID) {
-        int success = updateProviderServices.removeProvider(providerID);
+        int success = 1;
         return ResponseEntity.ok(success);
     }
-
+/* 
     @PostMapping("/editProvider")
     public ResponseEntity<Integer> editProviderCall(@RequestBody Provider provider) {
         int success = updateProviderServices.editProvider(provider);
