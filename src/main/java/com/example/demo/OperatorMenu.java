@@ -25,12 +25,12 @@ public class OperatorMenu {
     @Autowired
     private UpdateOperator updateOperatorServices;*/
 
-    /*@PostMapping("/addMember")
+    @PostMapping("/addMember")
     public ResponseEntity<Integer> addMemberCall(@RequestBody Member member) {
-        int success = updateMemberService.addMember(member);
+        int success = 0;
         return ResponseEntity.ok(success);
     }
-
+/*
     @PostMapping("/removeMember")
     public ResponseEntity<Integer> removeMemberCall(@RequestBody int memberID) {
         int success = updateMemberService.removeMember(memberID);
