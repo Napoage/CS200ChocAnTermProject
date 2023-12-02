@@ -1,8 +1,9 @@
 function handleButtonClick(event, report) {
     event.preventDefault();
-    if (report = "Bill") {
-      window.location.href = "BillPage.html";
-    } else if (report = "Directory") {
+    if (report == "Bill") {
+      window.location.href = "BillChocAnPage.html";
+    } else if (report == "Directory") {
+        console.log("Directory");
       fetch('http://localhost:8080/api/provider/requestProviderDirectory', {
           method: 'POST',
           headers: {

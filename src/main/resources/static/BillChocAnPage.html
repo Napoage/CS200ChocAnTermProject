@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill ChocAn </title>
+    <link rel="stylesheet" href="BillChocAnPageCss.css">
+</head>
+<body>
+    <div class="provider-box">
+        <h2>Bill ChocAn</h2>
+        <form id="billChoAn-form">
+          <div class="user-box">
+            <input type="text" name="Date" required="">
+            <label>Date </label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="providerNumber" required="">
+            <label>Provider Number</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="memberNumber" required="">
+            <label>Member Number</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="serviceCode" required="">
+            <label>Service Code</label>
+          </div>
+           <a href="#" id="billChocAnButton" onclick="handleButtonClick(event)">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Bill ChocAn
+          </a>
+          <div class="popup" id="popup">
+
+          <p>Bill ChocAn did not successfully run please retry</p>
+          <button type = "button" id="okButton" onclick="closePopup()">OK</button>
+        </div>
+           <a href="#" id="goBackButton" onclick="handleGoBackButtonClick(event)">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Go Back
+          </a>
+        </form>
+      </div>
+
+      <script src="BillChocAnPage.js"></script>
+</body>
+</html>
