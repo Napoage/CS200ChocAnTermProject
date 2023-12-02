@@ -6,17 +6,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+
+import java.beans.Transient;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.PrePersist;
 
 @Entity
 public class Member {
 
-    @Id
+    
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
     @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
     private int id;
 
+    @Id
     @Column(length = 9)
     private String memberID;
 
