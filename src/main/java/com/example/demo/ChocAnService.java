@@ -2,19 +2,29 @@ package com.example.demo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.PrePersist;
 
 
 @Entity
 public class ChocAnService {
 
-    private String name;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
+    @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
+    private int id;
+
     @Id
-    private String code;
+    @Column(length = 6)
+    private String serviceID;
+
+    private String name;
     private double fee;
 
-    public ChocAnService(String name, String code, double fee) {
+    public ChocAnService(String name, double fee) {
         this.name = name;
-        this.code = code;
         this.fee = fee;
     }
 
@@ -25,10 +35,6 @@ public class ChocAnService {
         return name;
     }
 
-    public String getCode() {
-        return code;
-    }
-
     public double getFee() {
         return fee;
     }
@@ -37,15 +43,12 @@ public class ChocAnService {
         this.name = name;
     }
 
-    public void setCode(String code) {
-        if (code.length() != 6) {
-            throw new IllegalArgumentException("Code must be 6 digits");
-        }
-        this.code = code;
-    }
-
     public void setFee(double fee) {
         this.fee = fee;
     }
-    
+
+    @PrePersist
+    public void generateServiceID() {
+        this.serviceID = String.format("%06d", id);
+    }    
 }
