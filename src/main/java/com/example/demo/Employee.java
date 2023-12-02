@@ -21,7 +21,7 @@ public class Employee {
     
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
     @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
-    //@Transient
+    @Transient
     private int id;
 
     @Id
