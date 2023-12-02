@@ -4,9 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.DiscriminatorValue;
 
 @Entity
-public class Provider {
+@DiscriminatorValue("PROVIDER")
+public class Provider extends Employee{
     // Define fields for providerName, providerAddress, etc.
     private String providerName;
     private String providerAddress;

@@ -6,11 +6,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.DiscriminatorValue;
 
 @Entity
-public class Manager {
+@DiscriminatorValue("MANAGER")
+public class Manager extends Employee{
 
-    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int managerID;
     private String managerName;

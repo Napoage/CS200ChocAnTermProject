@@ -4,18 +4,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.DiscriminatorValue;
 
 @Entity
-public class Operator {
+@DiscriminatorValue("OPERATOR")
+public class Operator extends Employee {
 
-    @Id
     private int operatorID;
     private String operatorName;
     private String operatorUserName;
     private String operatorPassword;
     
     public Operator(String operatorName, String operatorUserName, String operatorPassword, int operatorID) {
-        super(OperatorUserName, OperatorPassword, EmployeeType.OPERATOR);
+        super(operatorUserName, operatorPassword, EmployeeType.OPERATOR);
         this.operatorName = operatorName;
         this.operatorID = operatorID;
     }
