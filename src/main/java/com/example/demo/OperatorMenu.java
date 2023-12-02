@@ -77,14 +77,14 @@ public class OperatorMenu {
     public ResponseEntity<Integer> editOperatorCall(@RequestBody Operator operator) {
         int success = updateOperatorServices.editOperator(operator);
         return ResponseEntity.ok(success);
-    }
+    }*/
 
     @PostMapping("/addManager")
     public ResponseEntity<Integer> addManagerCall(@RequestBody Manager manager) {
-        int success = updateManagerServices.addManager(manager);
+        int success = 1;
         return ResponseEntity.ok(success);
     }
-
+/* 
     @PostMapping("/removeManager")
     public ResponseEntity<Integer> removeManagerCall(@RequestBody int managerID) {
         int success = updateManagerServices.removeManager(managerID);
