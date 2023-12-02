@@ -30,36 +30,33 @@ public class OperatorMenu {
         int success = 0;
         return ResponseEntity.ok(success);
     }
-/*
     @PostMapping("/removeMember")
     public ResponseEntity<Integer> removeMemberCall(@RequestBody int memberID) {
-        int success = updateMemberService.removeMember(memberID);
+        int success = 0;
         return ResponseEntity.ok(success);
     }
-
+ 
     @PostMapping("/editMember")
     public ResponseEntity<Integer> editMemberCall(@RequestBody Member member) {
-        int success = updateMemberService.editMember(member);
+        int success = 1;
         return ResponseEntity.ok(success);
-    }
-
+  }
     @PostMapping("/addProvider")
     public ResponseEntity<Integer> addProviderCall(@RequestBody Provider provider) {
-        int success = updateProviderServices.addProvider(provider);
+        int success = 0;
         return ResponseEntity.ok(success);
     }
 
     @PostMapping("/removeProvider")
     public ResponseEntity<Integer> removeProviderCall(@RequestBody int providerID) {
-        int success = updateProviderServices.removeProvider(providerID);
+        int success = 1;
         return ResponseEntity.ok(success);
     }
-
     @PostMapping("/editProvider")
     public ResponseEntity<Integer> editProviderCall(@RequestBody Provider provider) {
-        int success = updateProviderServices.editProvider(provider);
+        int success = 1;
         return ResponseEntity.ok(success);
-    }*/
+    }
 
     @PostMapping("/addOperator")
     public ResponseEntity<Integer> addOperatorCall(@RequestBody Operator operator) {
@@ -67,33 +64,33 @@ public class OperatorMenu {
         return ResponseEntity.ok(success);
     }
 
-    /*@PostMapping("/removeOperator")
+    @PostMapping("/removeOperator")
     public ResponseEntity<Integer> removeOperatorCall(@RequestBody int operatorID) {
-        int success = updateOperatorServices.removeOperator(operatorID);
+        int success = 1;
         return ResponseEntity.ok(success);
     }
 
     @PostMapping("/editOperator")
     public ResponseEntity<Integer> editOperatorCall(@RequestBody Operator operator) {
-        int success = updateOperatorServices.editOperator(operator);
+        int success = 1;
         return ResponseEntity.ok(success);
-    }*/
+    }
 
     @PostMapping("/addManager")
     public ResponseEntity<Integer> addManagerCall(@RequestBody Manager manager) {
         int success = 1;
         return ResponseEntity.ok(success);
     }
-/* 
+
     @PostMapping("/removeManager")
     public ResponseEntity<Integer> removeManagerCall(@RequestBody int managerID) {
-        int success = updateManagerServices.removeManager(managerID);
+        int success = 1;
         return ResponseEntity.ok(success);
     }
-
+ 
     @PostMapping("/editManager")
     public ResponseEntity<Integer> editManagerCall(@RequestBody Manager manager) {
-        int success = updateManagerServices.editManager(manager);
+        int success = 1;
         return ResponseEntity.ok(success);
-    }*/
+    }
 } 

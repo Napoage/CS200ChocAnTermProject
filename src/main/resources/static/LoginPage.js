@@ -1,12 +1,14 @@
 function handleButtonClick(event) {
     event.preventDefault();
 
-    var usernameIn = document.getElementById('username').value;
-    var passwordIn = document.getElementById('password').value;
-
+    var username = document.getElementsByName('username')[0].value;
+    var password = document.getElementsByName('password')[0].value;
+if (!username || !password) {
+    console.log("Please fill in all the required fields.");
+} else {
     var loginData = {
-        username: usernameIn,
-        password: passwordIn
+        username: username,
+        password: password
     };
 
     fetch("http://localhost:8080/enterLogin", {
@@ -18,8 +20,8 @@ function handleButtonClick(event) {
     })
     .then(response => response.json())
     .then(data => {
-        var result = data.loginResult;
-        switch(result) {
+        //var result = data.loginResult;
+        switch(data) {
             case 1:
                 window.location.href = "OperatorMenuPage.html";
                 break;
@@ -30,13 +32,13 @@ function handleButtonClick(event) {
                 window.location.href = "ManagerMenuPage.html";
                 break;
             case 0:
-                window.location.href = "no username";
+                //wont work no windowwindow.location.href = "no username";
                 break;
             case -1:
-                window.location.href = "no password";
+                //wont work no window window.location.href = "no password";
                 break;
             case -2:
-                window.location.href = "too many failed attempts";
+                //wont work no window window.location.href = "too many failed attempts";
                 break;
             default:
                 console.error('Invalid result:', result);
@@ -45,8 +47,9 @@ function handleButtonClick(event) {
     })
     .catch(error => console.error('Error:', error));
 }
+}
 
 // Attach the function to the button click event
-document.getElementById('submitButton').addEventListener('click', function (event) {
+document.getElementById('submitButton').addEventListener('DOMContentLoaded', (event) => {
     handleButtonClick(event);
 });
