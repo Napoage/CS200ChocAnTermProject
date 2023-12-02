@@ -23,10 +23,12 @@ public class Member {
     @Id
     @Column(length = 9)
     private String memberID;
-
+    @Column(length = 25)
     private String name;
     private String email;
+    @Column(length = 25)
     private String streetAddress;
+    @Column(length = 14)
     private String city;
     @Column(length = 2)
     private String state; // 2-letter state code
