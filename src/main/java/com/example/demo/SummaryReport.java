@@ -1,5 +1,9 @@
 package com.example.demo;
 
-public class SummaryReport {
+@Entity
+@Table(name = "SummaryReports")
+public class SummaryReport extends Report{
+
+    
     
 }

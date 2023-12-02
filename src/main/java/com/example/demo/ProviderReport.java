@@ -1,5 +1,5 @@
 package com.example.demo;
 
-public class ProviderReport {
+public class ProviderReport extends Report{
     
 }

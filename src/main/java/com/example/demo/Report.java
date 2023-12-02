@@ -4,15 +4,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+
+import java.beans.Transient;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.PrePersist;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "report_type", discriminatorType = DiscriminatorType.STRING)
 public class Report {
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
-    @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "report_seq")
+    @SequenceGenerator(name = "report_seq", sequenceName = "custom_report_seq", initialValue = 1, allocationSize = 1)
+    @Transient
     private int id;
 
     @Id
@@ -21,28 +27,19 @@ public class Report {
 
     private String patientId;
     private String providerId;
-    private String operatorId;
-    private String report;
+    @Column(name = "report_type", insertable = false, updatable = false)
+    private ReportType reportType;
     private String date;
 
-    public Report(String patientId, String providerId, String operatorId, String report, String date) {
+    public Report(String patientId, String providerId, String date, ReportType reportType) {
         this.patientId = patientId;
         this.providerId = providerId;
-        this.operatorId = operatorId;
-        this.report = report;
         this.date = date;
+        this.reportType = reportType;
     }
 
     public Report() {
     }
-
-    // public String getReportId() {
-    //     return this.reportId;
-    // }
-
-    // public void setReportId(String reportId) {
-    //     this.reportId = reportId;
-    // }
 
     public String getPatientId() {
         return this.patientId;
@@ -60,28 +57,27 @@ public class Report {
         this.providerId = providerId;
     }
 
-    public String getOperatorId() {
-        return this.operatorId;
-    }
-
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public String getReport() {
-        return this.report;
-    }
-
-    public void setReport(String report) {
-        this.report = report;
-    }
-
     public String getDate() {
         return this.date;
     }
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public ReportType getReportType() {
+        return this.reportType;
+    }
+
+    public void setReportType(ReportType reportType) {
+        this.reportType = reportType;
+    }
+
+    public enum ReportType {
+        SUMMARY,
+        PROVIDER,
+        MEMBER,
+        MANAGER
     }
 
     @PrePersist
