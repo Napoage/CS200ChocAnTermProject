@@ -35,13 +35,12 @@ public class OperatorMenu {
         int success = 0;
         return ResponseEntity.ok(success);
     }
-/* 
+ 
     @PostMapping("/editMember")
     public ResponseEntity<Integer> editMemberCall(@RequestBody Member member) {
-        int success = updateMemberService.editMember(member);
+        int success = 1;
         return ResponseEntity.ok(success);
-    }
-*/
+  }
     @PostMapping("/addProvider")
     public ResponseEntity<Integer> addProviderCall(@RequestBody Provider provider) {
         int success = 0;
@@ -66,12 +65,12 @@ public class OperatorMenu {
         return ResponseEntity.ok(success);
     }
 
-    /*@PostMapping("/removeOperator")
+    @PostMapping("/removeOperator")
     public ResponseEntity<Integer> removeOperatorCall(@RequestBody int operatorID) {
-        int success = updateOperatorServices.removeOperator(operatorID);
+        int success = 1;
         return ResponseEntity.ok(success);
     }
-
+/* 
     @PostMapping("/editOperator")
     public ResponseEntity<Integer> editOperatorCall(@RequestBody Operator operator) {
         int success = updateOperatorServices.editOperator(operator);
@@ -83,13 +82,13 @@ public class OperatorMenu {
         int success = 1;
         return ResponseEntity.ok(success);
     }
-/* 
+
     @PostMapping("/removeManager")
     public ResponseEntity<Integer> removeManagerCall(@RequestBody int managerID) {
-        int success = updateManagerServices.removeManager(managerID);
+        int success = 1;
         return ResponseEntity.ok(success);
     }
-
+/* 
     @PostMapping("/editManager")
     public ResponseEntity<Integer> editManagerCall(@RequestBody Manager manager) {
         int success = updateManagerServices.editManager(manager);
