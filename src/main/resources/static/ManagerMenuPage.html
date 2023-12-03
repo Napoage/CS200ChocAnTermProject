@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChocAn Manager Menu</title>
+  <link rel="stylesheet" href="ManagerMenuPageCss.css">
+</head>
+
+<body>
+  <div class="Manager-box">
+    <h2>Manager Menu</h2>
+    <h4>Choose Which Report to Compile</h4>
+    <form id="Manager-form">
+      <a href="#" id="providerReportButton" onclick="handleButtonClick(event)">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Provider Report
+      </a>
+      <a href="#" id="memberReportButton" onclick="handleButtonClick(event)">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Member Report
+      </a>
+      <a href="#" id="summaryReportButton" onclick="handleButtonClick(event)">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Summary Report
+      </a>
+      <div class="popup" id="popup">
+
+          <p>The Report was Successfully Generated</p>
+          <button type = "button" id="okButton" onclick="closePopup()">OK</button>
+        </div>
+      <a href="#" id="logOutButton" onclick="handleButtonClick(event)">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Log Out
+      </a>
+    </form>
+  </div>
+
+  <script src="ManagerMenuPage.js"></script>
+</body>
+
+</html>
