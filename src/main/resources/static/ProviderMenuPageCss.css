@@ -1,0 +1,116 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.Provider-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 10px;
+}
+
+.Provider-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+.Provider-box h4 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.Provider-box .user-box {
+  position: relative;
+}
+
+.Provider-box .user-box input:focus ~ label,
+.Provider-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.Provider-box form a {
+  display: block;
+  width: 50%;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  letter-spacing: 4px;
+  text-align: center;
+  box-sizing: border-box;
+  background: #0588;
+  border: 1px solid #222;
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 1); /* Increased shadow effect */
+}
+
+
+
+
+.Provider-box a:hover {
+background: #03e9f4;
+color: #fff;
+border-radius: 5px;
+box-shadow: 0 0 5px #03e9f4,
+            0 0 25px #03e9f4,
+            0 0 50px #03e9f4,
+            0 0 100px #03e9f4;
+}
+.popup {
+width: 80%; /* Use a percentage for better responsiveness */
+max-width: 400px; /* Set a maximum width if needed */
+background: rgba(0, 200, 0, 1);
+border-radius: 10px;
+position: fixed; /* Use fixed position to overlay on the entire screen */
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+padding: 20px;
+visibility: hidden;
+color: #fff;
+box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+transition: transform 0.3s, visibility 0.3s;
+}
+
+.popup button {
+width: 100%;
+margin-top: 20px;
+padding: 10px 0;
+background: #fff;
+color: #000;
+border: 0;
+outline: none;
+font-size: 18px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.open-popup {
+visibility: visible;
+top: 50%;
+transform: translate(-50%, -50%);
+}
