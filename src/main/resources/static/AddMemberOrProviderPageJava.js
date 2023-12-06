@@ -11,46 +11,36 @@ function handleButtonClick(event) {
 
     var htmlTitle = document.title;
     var Role;
-
+    console.log(name, address, city, state, zipCode, email, htmlTitle);
     if (!name || !address || !city || !state || !zipCode || !email) {
         console.log("Please fill in all fields");
     } else {
+        // ...
         if (htmlTitle === "ChocAnAddMemberPage") {
             console.log("In member");
-            // If the title matches, assign a value to a variable
-            let member = {
-                // Fill in your member fields here
-                name: name,
-                address: address,
-                city: city,
-                state: state,
-                zipCode: zipCode,
-                email: email
-                // add other fields if they exist in your Member class
-            };
-
-            fetch('http://localhost:8080/api/operator/addMember', {
+            let url = `http://localhost:8080/api/operator/addMember?name=${name}&email=${email}&address=${address}&city=${city}&state=${state}&zipCode=${zipCode}&status=true`;
+        
+            fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(member),
             })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    if (data == 0) {
-console.log('error');
-            openPopup();
-                    } else {
-                      console.log('Success');
-                      window.location.href = "AddMemberPage.html";
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        } else if (htmlTitle === "ChocAnAddProviderPage") {
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if (data === 0) {
+                    console.log('error');
+                    openPopup();
+                } else {
+                    console.log('Success');
+                    window.location.href = "AddMemberPage.html";
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });       
+    } else if (htmlTitle === "ChocAnAddProviderPage") {
             // If the title matches, assign a value to a variable
           var userName = document.getElementsByName('userName')[0].value;
           var password = document.getElementsByName('password')[0].value;

@@ -8,6 +8,8 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 import java.beans.Transient;
+import java.util.Random;
+import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.PrePersist;
@@ -15,103 +17,121 @@ import jakarta.persistence.PrePersist;
 @Entity
 public class Member {
 
-    
+    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
     @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
     private int id;
 
-    @Id
-    @Column(length = 9)
+    @Column(name = "memberid", length = 9)
     private String memberID;
-    @Column(length = 25)
-    private String name;
-    private String email;
-    @Column(length = 25)
-    private String streetAddress;
-    @Column(length = 14)
-    private String city;
-    @Column(length = 2)
-    private String state; // 2-letter state code
-    @Column(length = 5)
-    private String zipCode; // 5-digit ZIP code
-    private boolean status; // Active or suspended
+    @Column(name = "name", length = 25)
+    private String memberName;
+    @Column(name = "email", length = 50)
+    private String memberEmail;
+    @Column(name = "street_address", length = 25)
+    private String memberAddress;
+    @Column(name = "city", length = 14)
+    private String memberCity;
+    @Column(name = "state", length = 2)
+    private String memberState; // 2-letter state code
+    @Column(name = "zip_code", length = 5)
+    private String memberZip; // 5-digit ZIP code
+    @Column(name = "status")
+    private boolean memberStatus; // Active or suspended
 
     // Constructor
-    public Member(String memberName, String memberEmail, String memberStreetAddress, String memberCity,
+    public Member() {
+    }
+    public Member(String memberName, String memberEmail, String memberAddress, String memberCity,
             String memberState, String memberZipCode) {
-        this.name = memberName;
-        this.email = memberEmail;
-        this.streetAddress = memberStreetAddress;
-        this.city = memberCity;
-        this.state = memberState;
-        this.zipCode = memberZipCode;
-        this.status = true; // Assuming new members are active by default
+        this.memberName = memberName;
+        this.memberEmail = memberEmail;
+        this.memberAddress = memberAddress;
+        this.memberCity = memberCity;
+        this.memberState = memberState;
+        this.memberZip = memberZipCode;
+        generateMemberID();
+        this.memberStatus = true; // Assuming new members are active by default
     }
 
     public boolean changeName(String newName) {
-        name = newName;
+        memberName = newName;
         return true;
     }
 
     // Getters and Setters
     public String getName() {
-        return name;
+        return memberName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.memberName = name;
     }
 
     public String getEmail() {
-        return email;
+        return memberEmail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.memberEmail = email;
     }
 
     public String getStreetAddress() {
-        return streetAddress;
+        return memberAddress;
     }
 
     public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+        this.memberAddress = streetAddress;
     }
 
     public String getCity() {
-        return city;
+        return memberCity;
     }
 
     public void setCity(String city) {
-        this.city = city;
+        this.memberCity = city;
     }
 
-    public String getState() {
-        return state;
+    public String getMemberState() {
+        return memberState;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setMemberState(String state) {
+        this.memberState = state;
     }
 
     public String getZipCode() {
-        return zipCode;
+        return memberZip;
     }
 
     public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+        this.memberZip = zipCode;
     }
 
     public boolean isStatus() {
-        return status;
+        return memberStatus;
     }
 
     public void setStatus(boolean status) {
-        this.status = status;
+        this.memberStatus = status;
     }
-
+    public String getMemberID() {
+        return memberID;
+    }
+    public void setMemberID(String memberID) {
+        this.memberID = memberID;
+    }
     @PrePersist
+    public void beforePersist() {
+        // Ensure memberID is set before persisting
+        generateMemberID();
+        this.memberStatus = true; // Assuming new members are active by default
+    }
     public void generateMemberID() {
-        this.memberID = String.format("%09d", id);
+        Random rand = new Random();
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt((999999999 - 100000000) + 1) + 100000000;
+        this.memberID = Integer.toString(randomNum);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.demo;
 
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("/api/operator")
@@ -25,9 +27,30 @@ public class OperatorController {
     @Autowired
     private UpdateOperator updateOperatorServices;*/
 
+    @Autowired
+    private MemberRepository memberRepository;
+
     @PostMapping("/addMember")
-    public ResponseEntity<Integer> addMemberCall(@RequestBody Member member) {
+    public ResponseEntity<Integer> addMemberCall(@RequestParam String name,
+    @RequestParam String email,
+    @RequestParam String address,
+    @RequestParam String city,
+    @RequestParam String state,
+    @RequestParam String zipCode) {
         int success = 0;
+        System.out.println(name + ", " + email + ", " + address + ", " + city + ", " + state + ", " + zipCode);
+        Member member = new Member(name, email, address, city, state, zipCode);
+        member.generateMemberID();
+        member.setStatus(true);
+        System.out.println(member.getMemberID() + ", " + member.getName() + ", " + member.getEmail() + ", " + member.getStreetAddress() + ", " + ", " + member.getMemberState() + ", " + member.getCity() + member.getZipCode() + ", " + member.isStatus());
+        memberRepository.save(member);
+        Member testMember = memberRepository.findMemberByMemberID(member.getMemberID());
+        if (testMember != null) {
+            success = 1;
+            System.out.println("Member added successfully");
+            System.out.println(memberRepository.findAll());
+            return ResponseEntity.ok(success);
+        }
         return ResponseEntity.ok(success);
     }
     @PostMapping("/removeMember")
