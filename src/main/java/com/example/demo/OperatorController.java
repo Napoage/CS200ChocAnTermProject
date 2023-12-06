@@ -46,9 +46,10 @@ public class OperatorController {
         memberRepository.save(member);
         Member testMember = memberRepository.findMemberByMemberID(member.getMemberID());
         if (testMember != null) {
-            success = 1;
+            success = Integer.parseInt(testMember.getMemberID());
             System.out.println("Member added successfully");
             System.out.println(memberRepository.findAll());
+            
             return ResponseEntity.ok(success);
         }
         return ResponseEntity.ok(success);

@@ -31,10 +31,10 @@ function handleButtonClick(event) {
                 console.log('Success:', data);
                 if (data === 0) {
                     console.log('error');
-                    openPopup();
+
                 } else {
                     console.log('Success');
-                    window.location.href = "AddMemberPage.html";
+                    openPopup2(data);
                 }
             })
             .catch((error) => {
@@ -86,16 +86,18 @@ function handlegoBackButtonClick(event) {
     event.preventDefault();
     window.location.href = "OperatorMenuPage.html";
 }
-let popup = document.getElementById("popup");
-function closePopup(event) {
+let popup2 = document.getElementById("popup2");
+function closePopup2(event) {
   event.preventDefault();
-  popup.classList.remove("open-popup");
-  var button = document.getElementById('okButton');
-  button.style.visibility = 'hidden';
+  popup2.classList.remove("open-popup2");
+  var button2 = document.getElementById('okButton');
+  button2.style.visibility = 'hidden';
+  window.location.href = 'AddMemberPage.html'
 }
 // Corrected typo in function keyword
-function openPopup() {
-  popup.classList.add("open-popup");
+function openPopup2(data) {
+  popup2.classList.add("open-popup2");
+  document.getElementById('output').textContent = data;
   var button = document.getElementById('okButton');
   button.style.visibility = 'visible';
 }
@@ -110,6 +112,6 @@ document.getElementById('submitButton').addEventListener('click', function (even
 document.getElementById('goBackButton').addEventListener('click', function (event) {
     handlegoBackButtonClick(event);
 });
-document.getElementById('okButton').addEventListener('click', function (event) {
-    closePopup(event);
+document.getElementById('okButton2').addEventListener('click', function (event) {
+    closePopup2(event);
 });
