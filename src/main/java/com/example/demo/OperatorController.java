@@ -32,7 +32,8 @@ public class OperatorController {
     private MemberRepository memberRepository;
 
     @PostMapping("/addMember")
-    public ResponseEntity<Integer> addMemberCall(@RequestParam String name,
+    public ResponseEntity<Integer> addMemberCall(
+    @RequestParam String name,
     @RequestParam String email,
     @RequestParam String address,
     @RequestParam String city,
@@ -71,8 +72,29 @@ public class OperatorController {
     }
  
     @PostMapping("/editMember")
-    public ResponseEntity<Integer> editMemberCall(@RequestBody Member member) {
-        int success = 1;
+    public ResponseEntity<Integer> editMemberCall(
+    @RequestParam String memberID,
+    @RequestParam String name,
+    @RequestParam String email,
+    @RequestParam String address,
+    @RequestParam String city,
+    @RequestParam String state,
+    @RequestParam String zipCode) {
+        int success = 0;
+        Member member = memberRepository.findMemberByMemberID(memberID);
+        if (member != null) {
+            member.setName(name);
+            member.setEmail(email);
+            member.setStreetAddress(address);
+            member.setCity(city);
+            member.setMemberState(state);
+            member.setZipCode(zipCode);
+            memberRepository.save(member);
+            success = 1;
+            System.out.println("Member edited successfully");
+            System.out.println(memberRepository.findAll());
+            return ResponseEntity.ok(success);
+        }
         return ResponseEntity.ok(success);
   }
     @PostMapping("/addProvider")

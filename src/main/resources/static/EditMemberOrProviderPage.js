@@ -2,51 +2,42 @@
 
 function handleButtonClick(event) {
     event.preventDefault();
-
+    var memberID = document.getElementsByName('MemberNumber')[0].value;
     var name = document.getElementsByName('Name')[0].value;
     var address = document.getElementsByName('Address')[0].value;
     var city = document.getElementsByName('City')[0].value;
     var state = document.getElementsByName('StateCode')[0].value;
     var zipCode = document.getElementsByName('ZipCode')[0].value;
     var email = document.getElementsByName('Email')[0].value;
-
+    console.log(memberID, name, address, city, state, zipCode, email);
     var htmlTitle = document.title;
     var Role;
 
     if (!name || !address || !city || !state || !zipCode || !email) {
         console.log("Please fill in all fields");
-      openPopup();
     } else {
         if (htmlTitle === "ChocAnEditMemberPage") {
+            let url = `http://localhost:8080/api/operator/editMember?memberID=${memberID}&name=${name}&email=${email}&address=${address}&city=${city}&state=${state}&zipCode=${zipCode}&status=true`;
             // If the title matches, assign a value to a variable
-            let member = {
-                // Fill in your member fields here
-                name: name,
-                address: address,
-                city: city,
-                state: state,
-                zipCode: zipCode,
-                email: email
-            };
-
-            fetch('http://localhost:8080/api/operator/editMember', {
+            fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(member),
             })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-              if (data == 0) {
-                openPopup();              }
-              else {
-window.location.href = 'EditMemberPage.html';}
-                })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if (data == 0) {
+                    openPopup();
+                } else {
+                    //window.location.href = 'EditMemberPage.html';}
+                    console.log('Success');
+                }
+            })
                 .catch((error) => {
                     console.error('Error:', error);
-              openPopup();
+                    openPopup();
                 });
         } else if (htmlTitle === "ChocAnEditProviderPage") {
             // If the title matches, assign a value to a variable
