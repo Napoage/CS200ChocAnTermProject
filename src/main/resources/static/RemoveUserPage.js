@@ -9,16 +9,25 @@ function handleButtonClick(event) {
         console.log("Please fill in all the required fields.");
     } else {
     if (htmlTitle === "ChocAnRemoveMemberPage") {
-        fetch('http://localhost:8080/api/operator/removeMember', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(ID),
-        })
+        var url = `http://localhost:8080/api/operator/removeMember?memberID=${ID}`;
+
+        if (htmlTitle === "ChocAnRemoveMemberPage") {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+                if (data == 1) {
+                    console.log('Success');
+                    window.location.href = "RemoveMemberPage.html";
+                } else {
+                    console.log('Failure');
+                    //window.location.href = "RemoveMemberPage.html";
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -70,6 +79,7 @@ function handleButtonClick(event) {
                 console.error('Error:', error);
             });
     }
+}
 }
 }
 

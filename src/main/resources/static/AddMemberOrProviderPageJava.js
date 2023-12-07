@@ -92,7 +92,7 @@ function closePopup2(event) {
   popup2.classList.remove("open-popup2");
   var button2 = document.getElementById('okButton');
   button2.style.visibility = 'hidden';
-  window.location.href = 'AddMemberPage.html'
+  window.location.href = 'AddMemberPage.html';
 }
 // Corrected typo in function keyword
 function openPopup2(data) {

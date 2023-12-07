@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @RestController
@@ -55,8 +56,17 @@ public class OperatorController {
         return ResponseEntity.ok(success);
     }
     @PostMapping("/removeMember")
-    public ResponseEntity<Integer> removeMemberCall(@RequestBody int memberID) {
+    @Transactional
+    public ResponseEntity<Integer> removeMemberCall(@RequestParam String memberID) {
         int success = 0;
+        memberRepository.deleteMemberByMemberID(memberID);
+        Member testMember = memberRepository.findMemberByMemberID(memberID);
+        if (testMember == null) {
+            success = 1;
+            System.out.println("Member removed successfully");
+            System.out.println(memberRepository.findAll());
+            return ResponseEntity.ok(success);
+        }
         return ResponseEntity.ok(success);
     }
  
