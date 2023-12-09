@@ -17,19 +17,10 @@ import org.springframework.transaction.annotation.Transactional;
 @RequestMapping("/api/operator")
 public class OperatorController {
 
-    //final level methods call updateMember() and updateEmployee();
-    //once member is added prompt to add another member or return to first menu
-    /*@Autowired
-    private UpdateMember updateMemberService;
-    @Autowired
-    private UpdateProvider updateProviderServices;
-    @Autowired
-    private UpdateManager updateManagerServices;
-    @Autowired
-    private UpdateOperator updateOperatorServices;*/
-
     @Autowired
     private MemberRepository memberRepository;
+    @Autowired
+    private ProviderRepository providerRepository;
 
     @PostMapping("/addMember")
     public ResponseEntity<Integer> addMemberCall(
@@ -98,7 +89,18 @@ public class OperatorController {
         return ResponseEntity.ok(success);
   }
     @PostMapping("/addProvider")
-    public ResponseEntity<Integer> addProviderCall(@RequestBody Provider provider) {
+    public ResponseEntity<Integer> addProviderCall(@RequestBody Provider provider) { 
+        provider.generateEmployeeID();
+        provider.setProviderStatus(true);
+        System.out.println(provider.getEmployeeID() + ", " + provider.getProviderName() + ", " + provider.getProviderAddress() + ", " + provider.getProviderCity() + ", " + provider.getProviderStateCode() + ", " + provider.getProviderZipCode() + ", " + provider.getProviderEmail() + ", " + provider.getUsername() + ", " + provider.getPassword());
+        providerRepository.save(provider);
+        Provider testProvider = providerRepository.findProviderByEmployeeID(provider.getEmployeeID());
+        if (testProvider != null) {
+            int success = Integer.parseInt(testProvider.getEmployeeID());
+            System.out.println("Provider added successfully");
+            System.out.println(providerRepository.findAll());
+            return ResponseEntity.ok(success);
+        }
         int success = 0;
         return ResponseEntity.ok(success);
     }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.example.demo.Member;
 
-public interface MemberRepository extends CrudRepository<Member, Integer>{
+public interface MemberRepository extends CrudRepository<Member, String>{
     List<Member> findAll();
 
     Member findMemberByMemberID(String memberID);

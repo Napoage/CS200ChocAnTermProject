@@ -11,7 +11,7 @@ if (!username || !password) {
         password: password
     };
 
-    fetch("http://localhost:8080/enterLogin", {
+    fetch("http://localhost:8080/api/login/enterLogin", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

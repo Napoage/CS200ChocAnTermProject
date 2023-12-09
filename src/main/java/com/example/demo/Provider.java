@@ -12,20 +12,26 @@ import jakarta.persistence.Column;
 @Table(name = "Providers")
 public class Provider extends Employee{
     // Define fields for providerName, providerAddress, etc.
-    @Column(length = 25)
+    @Column(name ="provider_name",length = 25)
     private String providerName;
-    @Column(length = 25)
+    @Column(name = "provider_address",length = 25)
     private String providerAddress;
-    @Column(length = 14)
+    @Column(name = "provider_city",length = 14)
     private String providerCity;
-    @Column(length = 2)
+    @Column(name = "provider_state_code",length = 2)
     private String providerStateCode;
-    @Column(length = 5)
+    @Column(name = "provider_zip_code",length = 5)
     private String providerZipCode;
+    @Column(name = "provider_email")
     private String providerEmail;
-
+    @Column(name = "provider_status")
+    private boolean providerStatus;
+    public Provider() {
+        super();
+        // Initialize any default values if needed
+    }
     // Constructor to initialize the fields
-    public Provider(String providerName, String providerAddress, String providerCity, String providerStateCode, String providerZipCode, String providerEmail, int providerID, String providerUserName, String providerPassword) {
+    public Provider(String providerName, String providerAddress, String providerCity, String providerStateCode, String providerZipCode, String providerEmail, String providerUserName, String providerPassword) {
         super(providerUserName, providerPassword, EmployeeType.PROVIDER);
         this.providerName = providerName;
         this.providerAddress = providerAddress;
@@ -33,6 +39,7 @@ public class Provider extends Employee{
         this.providerStateCode = providerStateCode;
         this.providerZipCode = providerZipCode;
         this.providerEmail = providerEmail;
+        this.providerStatus = true;
     }
 
     public String getProviderName() {
@@ -53,8 +60,14 @@ public class Provider extends Employee{
     public String getProviderEmail() {
         return providerEmail;
     }
+    public boolean getProviderStatus() {
+        return providerStatus;
+    }
 
     // Setters for the fields
+    public void setProviderStatus(boolean providerStatus) {
+        this.providerStatus = providerStatus;
+    }
     public void setProviderName(String providerName) {
         this.providerName = providerName;
     }

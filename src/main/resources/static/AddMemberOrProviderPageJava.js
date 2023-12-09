@@ -40,42 +40,50 @@ function handleButtonClick(event) {
             .catch((error) => {
                 console.error('Error:', error);
             });       
-    } else if (htmlTitle === "ChocAnAddProviderPage") {
+        } else if (htmlTitle === "ChocAnAddProviderPage") {
             // If the title matches, assign a value to a variable
-          var userName = document.getElementsByName('userName')[0].value;
-          var password = document.getElementsByName('password')[0].value;
-            let provider = {
-                // Fill in your member fields here
-                name: name,
-                address: address,
-                city: city,
-                state: state,
-                zipCode: zipCode,
-                email: email,
-                username: userName,
-                password: password
-                // add other fields if they exist in your Member class
-            };
+            var providerName = name;
+            var providerAddress = address;
+            var providerCity = city;
+            var providerStateCode = state;
+            var providerZipCode = zipCode;
+            var providerEmail = email;
 
-            fetch('http://localhost:8080/api/operator/addProvider', {
+            var providerUserName = document.getElementsByName('userName')[0].value;
+            var providerPassword = document.getElementsByName('password')[0].value;
+            Role = "Provider";
+            var url = `http://localhost:8080/api/operator/addProvider`;
+            console.log(providerName, providerAddress, providerCity, providerStateCode, providerZipCode, providerEmail, providerUserName, providerPassword, Role);
+            fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(provider),
+                body: JSON.stringify({
+                    providerName: providerName,
+                    providerAddress: providerAddress,
+                    providerCity: providerCity,
+                    providerStateCode: providerStateCode,
+                    providerZipCode: providerZipCode,
+                    providerEmail: providerEmail,
+                    providerStatus: true,
+                    username: providerUserName,
+                    password: providerPassword,
+                }),
             })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    if(data == 0) {
-                      openPopup();
-                    } else {
-                      window.location.href = "ChocAnAddProviderPage.html";
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if(data == 0) {
+                    console.log('error');
+                } else {
+                    console.log('Success');
+                    openPopup2(data);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
 
         }
     }
