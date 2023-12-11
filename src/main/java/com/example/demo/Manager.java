@@ -6,19 +6,27 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Managers")
-public class Manager extends Employee{
+public class Manager {
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
+    @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
+    //@Transient
+    private int id;
 
+    @Id
+    @Column(name = "managerid", length = 9)
+    private String managerID;
     private String managerName;
     private String managerUserName;
     private String managerPassword;
     
     public Manager(String managerName, String managerUserName, String managerPassword, int managerID) {
-        super(managerUserName, managerPassword, EmployeeType.MANAGER);
         this.managerName = managerName;
     }
     

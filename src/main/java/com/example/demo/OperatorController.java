@@ -90,13 +90,13 @@ public class OperatorController {
   }
     @PostMapping("/addProvider")
     public ResponseEntity<Integer> addProviderCall(@RequestBody Provider provider) { 
-        provider.generateEmployeeID();
+        provider.generateProviderID();
         provider.setProviderStatus(true);
-        System.out.println(provider.getEmployeeID() + ", " + provider.getProviderName() + ", " + provider.getProviderAddress() + ", " + provider.getProviderCity() + ", " + provider.getProviderStateCode() + ", " + provider.getProviderZipCode() + ", " + provider.getProviderEmail() + ", " + provider.getUsername() + ", " + provider.getPassword());
+        System.out.println(provider.getProviderID() + ", " + provider.getProviderName() + ", " + provider.getProviderAddress() + ", " + provider.getProviderCity() + ", " + provider.getProviderStateCode() + ", " + provider.getProviderZipCode() + ", " + provider.getProviderEmail() + ", " + provider.getUsername() + ", " + provider.getPassword());
         providerRepository.save(provider);
-        Provider testProvider = providerRepository.findProviderByEmployeeID(provider.getEmployeeID());
+        Provider testProvider = providerRepository.findProviderByProviderID(provider.getProviderID());
         if (testProvider != null) {
-            int success = Integer.parseInt(testProvider.getEmployeeID());
+            int success = Integer.parseInt(testProvider.getProviderID());
             System.out.println("Provider added successfully");
             System.out.println(providerRepository.findAll());
             return ResponseEntity.ok(success);

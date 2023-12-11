@@ -49,11 +49,11 @@ function handleButtonClick(event) {
             var providerZipCode = zipCode;
             var providerEmail = email;
 
-            var providerUserName = document.getElementsByName('userName')[0].value;
-            var providerPassword = document.getElementsByName('password')[0].value;
+            var username = document.getElementsByName('userName')[0].value;
+            var password = document.getElementsByName('password')[0].value;
             Role = "Provider";
             var url = `http://localhost:8080/api/operator/addProvider`;
-            console.log(providerName, providerAddress, providerCity, providerStateCode, providerZipCode, providerEmail, providerUserName, providerPassword, Role);
+            console.log(providerName, providerAddress, providerCity, providerStateCode, providerZipCode, providerEmail, username, password, Role);
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -67,8 +67,8 @@ function handleButtonClick(event) {
                     providerZipCode: providerZipCode,
                     providerEmail: providerEmail,
                     providerStatus: true,
-                    username: providerUserName,
-                    password: providerPassword,
+                    username: username,
+                    password: password,
                 }),
             })
             .then(response => response.json())
