@@ -2,7 +2,6 @@
 
 function handleButtonClick(event) {
     event.preventDefault();
-    var memberID = document.getElementsByName('MemberNumber')[0].value;
     var name = document.getElementsByName('Name')[0].value;
     var address = document.getElementsByName('Address')[0].value;
     var city = document.getElementsByName('City')[0].value;
@@ -17,6 +16,7 @@ function handleButtonClick(event) {
         console.log("Please fill in all fields");
     } else {
         if (htmlTitle === "ChocAnEditMemberPage") {
+            var memberID = document.getElementsByName('MemberNumber')[0].value;
             let url = `http://localhost:8080/api/operator/editMember?memberID=${memberID}&name=${name}&email=${email}&address=${address}&city=${city}&state=${state}&zipCode=${zipCode}&status=true`;
             // If the title matches, assign a value to a variable
             fetch(url, {
@@ -41,31 +41,41 @@ function handleButtonClick(event) {
                 });
         } else if (htmlTitle === "ChocAnEditProviderPage") {
             // If the title matches, assign a value to a variable
-          var username = document.getElementsByName('userName')[0].value;
-          var password = document.getElementsByName('password')[0].value;
-            let provider = {
-                // Fill in your member fields here
-                name: name,
-                address: address,
-                city: city,
-                state: state,
-                zipCode: zipCode,
-                email: email
-            }
+            var providerID = document.getElementsByName('ProviderNumber')[0].value;
+            var providerName = name;
+            var providerAddress = address;
+            var providerCity = city;
+            var providerStateCode = state;
+            var providerZipCode = zipCode;
+            var providerEmail = email;
+            var username = document.getElementsByName('userName')[0].value;
+            var password = document.getElementsByName('password')[0].value;
             fetch('http://localhost:8080/api/operator/editProvider', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(provider),
+                body: JSON.stringify({
+                    providerName: providerName,
+                    providerAddress: providerAddress,
+                    providerCity: providerCity,
+                    providerStateCode: providerStateCode,
+                    providerZipCode: providerZipCode,
+                    providerEmail: providerEmail,
+                    providerStatus: true,
+                    username: username,
+                    password: password,
+                    providerID: providerID,
+                }),
             })
                 .then(response => response.json())
                 .then(data => {
                     console.log('Success:', data);
-              if (data == 0) {
-openPopup();} else {
-  window.location.href = 'EditProviderPage.html';
-}
+            if (data == 0) {
+                openPopup();
+            } else {
+                window.location.href = 'EditProviderPage.html';
+            }
                 })
                 .catch((error) => {
                     console.error('Error:', error);

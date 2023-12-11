@@ -13,8 +13,12 @@
     <h2>Edit Provider</h2>
     <form id="EditProvider-form">
       <div class="Main-box">
+        <input type="text" name="ProviderNumber" required="">
+        <label>Enter Provider ID</label>
+      </div>
+      <div class="Main-box">
         <input type="text" name="Name" required="">
-        <label>Enter Provider Name</label>
+        <label>Confirm/Edit Provider Name</label>
       </div>
       <div class="Main-box">
         <input type="text" name="Address" required="">
@@ -47,7 +51,7 @@
       <div class="button-box">
       <div class="button-box">
       <div class="button-box">
-        <a href="#" id="submitButton" onclick="handleButtonClick(event)">
+        <a href="#" id="submitButton">
           <span></span>
           <span></span>
           <span></span>
@@ -56,10 +60,10 @@
         </a>
         <div class="popup" id="popup">
 
-          <p>The Provider Was Not Successfully Added</p>
-          <button type = "button" id="okButton" onclick="closePopup()">OK</button>
+          <p>The Provider Was Not Successfully Edited</p>
+          <button type = "button" id="okButton">OK</button>
         </div>
-        <a href="#" id="goBackButton" onclick="handleButtonClick(event)">
+        <a href="#" id="goBackButton">
           <span></span>
           <span></span>
           <span></span>
