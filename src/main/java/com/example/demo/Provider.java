@@ -14,13 +14,16 @@ import java.util.Random;
 import jakarta.persistence.Column;
 
 @Entity
-@Table(name = "Providers")
+//@Table(name = "Providers")
 public class Provider {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
     @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
     //@Transient
     private int id;
     // Define fields for providerName, providerAddress, etc.
+    @Id
+    @Column(name = "providerid", length = 9)
+    private String providerID;
     @Column(name ="provider_name",length = 25)
     private String providerName;
     @Column(name = "provider_address",length = 25)
@@ -35,9 +38,6 @@ public class Provider {
     private String providerEmail;
     @Column(name = "provider_status")
     private boolean providerStatus;
-    @Id
-    @Column(name = "providerid", length = 9)
-    private String providerID;
     @Column(name = "username", length = 25)
     private String username;
     @Column(name = "password", length = 25)
@@ -54,10 +54,10 @@ public class Provider {
         this.providerStateCode = providerStateCode;
         this.providerZipCode = providerZipCode;
         this.providerEmail = providerEmail;
-        this.providerStatus = true;
         this.username = providerUserName;
         this.password = providerPassword;
         generateProviderID();
+        this.providerStatus = true;
 
     }
 
@@ -120,12 +120,15 @@ public class Provider {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getProviderID() {
+        return providerID;
+    }
     public void setProviderID(String providerID) {
         this.providerID = providerID;
     }
     @PrePersist
     public void beforePersist() {
-        // Ensure memberID is set before persisting
+        // Ensure providerID is set before persisting
         generateProviderID();
         this.providerStatus = true;
         //this.em = true; // Assuming new members are active by default
@@ -136,9 +139,6 @@ public class Provider {
         // so add 1 to make it inclusive
         int randomNum = rand.nextInt((999999999 - 100000000) + 1) + 100000000;
         this.providerID = Integer.toString(randomNum);
-    }
-    public String getProviderID() {
-        return providerID;
     }
 
     

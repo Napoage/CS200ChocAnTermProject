@@ -98,7 +98,7 @@ public class OperatorController {
         if (testProvider != null) {
             int success = Integer.parseInt(testProvider.getProviderID());
             System.out.println("Provider added successfully");
-            System.out.println(providerRepository.findAll());
+            System.out.println(testProvider.getProviderName());
             return ResponseEntity.ok(success);
         }
         int success = 0;
@@ -106,8 +106,20 @@ public class OperatorController {
     }
 
     @PostMapping("/removeProvider")
-    public ResponseEntity<Integer> removeProviderCall(@RequestBody int providerID) {
-        int success = 1;
+    @Transactional
+    public ResponseEntity<Integer> removeProviderCall(@RequestParam String providerID) {
+        int success = 0;
+        System.out.println(providerID);
+        providerRepository.deleteProviderByProviderID(providerID);
+        Provider testProvider = providerRepository.findProviderByProviderID(providerID);
+        System.out.println("Here");
+        if (testProvider == null) {
+            success = 1;
+            System.out.println("Member removed successfully");
+            System.out.println(providerRepository.findAll());
+            return ResponseEntity.ok(success);
+        }
+        System.out.println("Failed");
         return ResponseEntity.ok(success);
     }
     @PostMapping("/editProvider")

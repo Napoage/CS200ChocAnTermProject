@@ -1,17 +1,19 @@
 function handleButtonClick(event) {
     event.preventDefault();
+    console.log("Before if2 statement");
     //need to check if id is empty and need to recieve from a java file if it was successfully removed
     var ID = document.getElementsByName('UserID')[0].value;
 
     var htmlTitle = document.title;
+    console.log(htmlTitle);
+    console.log(ID);
     if (!ID) {
         // At least one of the variables is empty
         console.log("Please fill in all the required fields.");
     } else {
-    if (htmlTitle === "ChocAnRemoveMemberPage") {
-        var url = `http://localhost:8080/api/operator/removeMember?memberID=${ID}`;
-
+        
         if (htmlTitle === "ChocAnRemoveMemberPage") {
+            var url = `http://localhost:8080/api/operator/removeMember?memberID=${ID}`;
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -33,12 +35,16 @@ function handleButtonClick(event) {
                 console.error('Error:', error);
             });
     } else if (htmlTitle === "ChocAnRemoveProviderPage") {
-        fetch('http://localhost:8080/api/operator/removeProvider', {
+        console.log("Before if3 statement");
+        
+        var providerID = ID;
+        var url = `http://localhost:8080/api/operator/removeProvider?providerID=${providerID}`;
+        console.log(providerID);
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(ID),
         })
             .then(response => response.json())
             .then(data => {
@@ -81,7 +87,6 @@ function handleButtonClick(event) {
     }
 }
 }
-}
 
 function handlegoBackButtonClick(event) {
     event.preventDefault();
@@ -90,6 +95,7 @@ function handlegoBackButtonClick(event) {
 
 // Attach the function to the button click event
 document.getElementById('submitButton').addEventListener('click', function (event) {
+    console.log("Before if statement");
     handleButtonClick(event);
 });
 document.getElementById('goBackButton').addEventListener('click', function (event) {

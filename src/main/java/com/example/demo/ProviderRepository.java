@@ -7,8 +7,8 @@ import java.util.List;
 public interface ProviderRepository extends CrudRepository<Provider, String>{
     List<Provider> findAll();
 
-    Provider findProviderByProviderID(String providerID);
-    void deleteProviderByProviderID(String providerID);
+    Provider findProviderByProviderID(String providerid);
+    void deleteProviderByProviderID(String providerid);
 
     List<Provider> findProviderByProviderName(String providerName);
     void deleteProviderByProviderName(String providerName);
