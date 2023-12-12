@@ -48,8 +48,45 @@ if (!username || !password) {
     .catch(error => console.error('Error:', error));
 }
 }
+function handleRunMainAccountingProcedure(event) {
+    event.preventDefault();
+
+    fetch("http://localhost:8080/api/login/runMainAccountingProcedure", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        openPopup();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        openPopup();
+    });
+}
+let popup = document.getElementById("popup");
+function closePopup(event) {
+  event.preventDefault();
+  popup.classList.remove("open-popup");
+  var button = document.getElementById('okButton');
+  button.style.visibility = 'hidden';
+}
+// Corrected typo in function keyword
+function openPopup() {
+  popup.classList.add("open-popup");
+  var button = document.getElementById('okButton');
+  button.style.visibility = 'visible';
+}
 
 // Attach the function to the button click event
 document.getElementById('submitButton').addEventListener('DOMContentLoaded', (event) => {
     handleButtonClick(event);
+});
+document.getElementById('runMainAccountingProcedure').addEventListener('DOMContentLoaded', (event) => {
+    handleRunMainAccountingProcedure(event);
+});
+document.getElementById('okButton').addEventListener('click', function (event) {
+    closePopup(event);
 });
