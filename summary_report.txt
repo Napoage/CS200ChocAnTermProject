@@ -1,0 +1,5 @@
+Provider Name: Nicholas
+Number Of Consultations: 1
+Total Number of Providers who provided services: 1
+Total Number of Consultations: 1
+Total Fee for Week: 10.0

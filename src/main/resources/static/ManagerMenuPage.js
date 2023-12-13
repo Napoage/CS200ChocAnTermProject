@@ -38,6 +38,26 @@ function handleProviderButtonClick(event) {
             console.error('Error:', error);
         });
 }
+function handleSummaryButtonClick(event) {
+    event.preventDefault();
+    fetch('http://localhost:8080/api/inSummaryReport/summaryReport', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            if (data != 0) {
+              openPopup();
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
 
 function handleLogOutButtonClick(event) {
     event.preventDefault();
@@ -65,7 +85,7 @@ document.getElementById('memberReportButton').addEventListener('click', function
     handleMemberButtonClick(event);
 });
 document.getElementById('summaryReportButton').addEventListener('click', function (event) {
-    handleButtonClick(event, "s");
+    handleSummaryButtonClick(event);
 });
 document.getElementById('logOutButton').addEventListener('click', function (event) {
     handleLogOutButtonClick(event);
