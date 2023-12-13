@@ -81,20 +81,5 @@ public class ProviderController {
         }
         //TODO add provider directory
         return ResponseEntity.ok(1);
-    }
-
-   /*  public ResponseEntity<Integer> editProviderCall(@RequestBody Provider provider1) {
-        int success = 0;
-        System.out.println(provider1.getProviderID() + ", " + provider1.getProviderName() + ", " + provider1.getProviderAddress() + ", " + provider1.getProviderCity() + ", " + provider1.getProviderStateCode() + ", " + provider1.getProviderZipCode() + ", " + provider1.getProviderEmail() + ", " + provider1.getUsername() + ", " + provider1.getPassword());
-        Provider provider2 = providerRepository.findProviderByProviderID(provider1.getProviderID());
-        if (provider2 != null) {
-            providerRepository.save(provider1);
-            success = 1;
-            System.out.println("Member edited successfully");
-            System.out.println(memberRepository.findAll());
-            return ResponseEntity.ok(success);
-        }
-        return ResponseEntity.ok(success);
-    }*/
-    
+    } 
 }
