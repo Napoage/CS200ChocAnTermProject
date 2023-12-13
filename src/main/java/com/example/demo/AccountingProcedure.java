@@ -15,14 +15,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 @RequestMapping("/api/login")
 public class AccountingProcedure {
-
-    MemberReport memberReport = new MemberReport();
-    ProviderReport providerReport = new ProviderReport();
-    SummaryReport summaryReport = new SummaryReport();
+    @Autowired
+    private MemberReport memberReport;
+    @Autowired
+    private ProviderReport providerReport;
+    @Autowired
+    private SummaryReport summaryReport;
 
     @GetMapping("/runMainAccountingProcedure")
     public void runMainAccountingProcedure() {
-        //TODO: Implement this run main accounting procedure when finish other report methods
+        System.out.println("Running main accounting procedure");
+        memberReport.createMemberReport();
+        providerReport.createProviderReport();
+        summaryReport.createSummaryReport();
     }
     
     
