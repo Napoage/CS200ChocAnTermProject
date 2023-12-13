@@ -60,7 +60,17 @@ public class ProviderController {
             writer.println("Service Name: Test Service");
             writer.println("Service Fee: $10.00");
             writer.println();
-            
+            writer.println("Service Code: 111111");
+            writer.println("Service Name: Therapy");
+            writer.println("Service Fee: $10.00");
+            writer.println();
+            writer.println("Service Code: 222222");
+            writer.println("Service Name: Group Therapy");
+            writer.println("Service Fee: $20.00");
+            writer.println();
+            writer.println("Service Code: 333333");
+            writer.println("Service Name: Hypnotism");
+            writer.println("Service Fee: $100.00");
         } catch (IOException e) {
             e.printStackTrace();
         }
