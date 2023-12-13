@@ -1,5 +1,9 @@
 package com.example.demo;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +48,24 @@ public class ProviderController {
             return ResponseEntity.ok(success);
         }
         return ResponseEntity.ok(success);
+    }
+
+    @PostMapping("/requestProviderDirectory")
+    public ResponseEntity<Integer> requestProviderDirectoryCall() {
+        int success = 0;
+        System.out.println("Requesting provider directory");
+        try (PrintWriter writer = new PrintWriter(new FileWriter("provider_directory.txt"))) {
+            writer.println("Provider Directory");
+            writer.println("Service Code: 123456");
+            writer.println("Service Name: Test Service");
+            writer.println("Service Fee: $10.00");
+            writer.println();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //TODO add provider directory
+        return ResponseEntity.ok(1);
     }
 
    /*  public ResponseEntity<Integer> editProviderCall(@RequestBody Provider provider1) {
