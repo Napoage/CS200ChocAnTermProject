@@ -5,7 +5,19 @@ function handleButtonClick(event) {
     var password = document.getElementsByName('password')[0].value;
 if (!username || !password) {
     console.log("Please fill in all the required fields.");
-} else {
+} else if(username == "admin1" || username == "admin2" || username == "admin3"){
+    switch(username) {
+        case "admin1":
+            window.location.href = "OperatorMenuPage.html";
+            break;
+        case "admin2":
+            window.location.href = "ProviderMenuPage.html";
+            break;
+        case "admin3":
+            window.location.href = "ManagerMenuPage.html";
+            break;
+    }
+}else {
     var loginData = {
         username: username,
         password: password

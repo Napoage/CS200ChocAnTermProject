@@ -5,17 +5,18 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import java.time.LocalDateTime; 
 
 @Entity
 public class ServiceRecord {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
-    @SequenceGenerator(name = "employee_seq", sequenceName = "custom_employee_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "service_seq")
+    @SequenceGenerator(name = "service_seq", sequenceName = "custom_service_seq", initialValue = 1, allocationSize = 1)
     private int id;
 
-    @Column(name = "date", length = 10)
+    @Column(name = "date_provided", length = 10)
     private String date;
-    @Column(name = "date_recorded", length = 10)
+    @Column(name = "date", length = 10)
     private String dateRecorded;
     @Column(name = "provider_number", length = 9)
     private String providerNumber;
@@ -25,6 +26,8 @@ public class ServiceRecord {
     private String serviceCode;
     @Column(name = "comments", length = 100)
     private String comments;
+    @Column(name = "time", length = 20)
+    private String time = LocalDateTime.now().toString();
 
     public ServiceRecord() {
     }

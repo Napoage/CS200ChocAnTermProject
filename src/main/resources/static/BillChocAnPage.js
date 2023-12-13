@@ -22,7 +22,7 @@ function handleButtonClick(event) {
       body: JSON.stringify({
         date: date,
         dateRecorded: dateRecorded,
-        code: code,
+        serviceCode: code,
         memberNumber: memberNumber,
         providerNumber: providerNumber,
         comments: comments
