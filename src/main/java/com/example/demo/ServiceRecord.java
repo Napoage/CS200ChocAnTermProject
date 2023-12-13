@@ -5,7 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
-import java.time.LocalDateTime; 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter; 
 
 @Entity
 public class ServiceRecord {
@@ -26,8 +27,8 @@ public class ServiceRecord {
     private String serviceCode;
     @Column(name = "comments", length = 100)
     private String comments;
-    @Column(name = "time", length = 20)
-    private String time = LocalDateTime.now().toString();
+     @Column(name = "time", length = 20)
+    private String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
     public ServiceRecord() {
     }

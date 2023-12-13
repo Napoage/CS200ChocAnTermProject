@@ -32,7 +32,7 @@ public class ProviderController {
         service.setName("Test Service");
         service.setServiceID("123456");
         serviceRecordRepository.save(bill);
-        //TODO add fee for the week and number of consultations with members to provider class and update them here 
+        //TODO add member validation
         Provider provider = providerRepository.findProviderByProviderID(bill.getProviderNumber());
         provider.setTotalFeeToBePaid(provider.getTotalFeeToBePaid() + /*service.getFee()*/ 10.0);
         providerRepository.save(provider);
@@ -46,7 +46,7 @@ public class ProviderController {
         return ResponseEntity.ok(success);
     }
 
-    public ResponseEntity<Integer> editProviderCall(@RequestBody Provider provider1) {
+   /*  public ResponseEntity<Integer> editProviderCall(@RequestBody Provider provider1) {
         int success = 0;
         System.out.println(provider1.getProviderID() + ", " + provider1.getProviderName() + ", " + provider1.getProviderAddress() + ", " + provider1.getProviderCity() + ", " + provider1.getProviderStateCode() + ", " + provider1.getProviderZipCode() + ", " + provider1.getProviderEmail() + ", " + provider1.getUsername() + ", " + provider1.getPassword());
         Provider provider2 = providerRepository.findProviderByProviderID(provider1.getProviderID());
@@ -58,6 +58,6 @@ public class ProviderController {
             return ResponseEntity.ok(success);
         }
         return ResponseEntity.ok(success);
-    }
+    }*/
     
 }
