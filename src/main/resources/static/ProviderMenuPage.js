@@ -13,8 +13,6 @@ function handleButtonClick(event, report) {
           .then(response => response.json())
           .then(data => {
               console.log('Success:', data);
-          if (data != 0) {
-openPopup();} 
           })
           .catch((error) => {
               console.error('Error:', error);

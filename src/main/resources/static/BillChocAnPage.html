@@ -15,6 +15,10 @@
             <label>Date </label>
           </div>
           <div class="user-box">
+            <input type="text" name="Date-Recorded" required="">
+            <label>Date-Recorded </label>
+          </div>
+          <div class="user-box">
             <input type="text" name="providerNumber" required="">
             <label>Provider Number</label>
           </div>
@@ -26,7 +30,11 @@
             <input type="text" name="serviceCode" required="">
             <label>Service Code</label>
           </div>
-           <a href="#" id="billChocAnButton" onclick="handleButtonClick(event)">
+          <div class="user-box">
+            <input type="text" name="Comments" required="">
+            <label>Comments That no one will use and are a waste of my time </label>
+          </div>
+           <a href="#" id="billChocAnButton">
             <span></span>
             <span></span>
             <span></span>
@@ -36,9 +44,16 @@
           <div class="popup" id="popup">
 
           <p>Bill ChocAn did not successfully run please retry</p>
-          <button type = "button" id="okButton" onclick="closePopup()">OK</button>
-        </div>
-           <a href="#" id="goBackButton" onclick="handleGoBackButtonClick(event)">
+          <button type = "button" id="okButton">OK</button>
+          </div>
+
+      <div class="popup2" id="popup2">
+
+       <p>Your Total Bill: <span id="output"></span> </p>
+       <button type = "button2" id="okButton2">OK</button>
+     </div>
+
+           <a href="#" id="goBackButton">
             <span></span>
             <span></span>
             <span></span>

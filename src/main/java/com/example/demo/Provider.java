@@ -42,6 +42,8 @@ public class Provider {
     private String username;
     @Column(name = "password", length = 25)
     private String password;
+    @Column(name = "total_fee_to_be_paid")
+    private double totalFeeToBePaid;
     
     public Provider() {
         // Initialize any default values if needed
@@ -58,6 +60,7 @@ public class Provider {
         this.password = providerPassword;
         generateProviderID();
         this.providerStatus = true;
+        this.totalFeeToBePaid = 0;
 
     }
 
@@ -139,6 +142,12 @@ public class Provider {
         // so add 1 to make it inclusive
         int randomNum = rand.nextInt((999999999 - 100000000) + 1) + 100000000;
         this.providerID = Integer.toString(randomNum);
+    }
+    public double getTotalFeeToBePaid() {
+        return totalFeeToBePaid;
+    }
+    public void setTotalFeeToBePaid(double totalFeeToBePaid) {
+        this.totalFeeToBePaid =  totalFeeToBePaid;
     }
 
     

@@ -39,6 +39,8 @@ public class Member {
     private String memberZip; // 5-digit ZIP code
     @Column(name = "status")
     private boolean memberStatus; // Active or suspended
+    /*@Column(name = "fee_to_pay")
+    private int feeToPay;*/
 
     // Constructor
     public Member() {
@@ -53,6 +55,7 @@ public class Member {
         this.memberZip = memberZipCode;
         generateMemberID();
         this.memberStatus = true; // Assuming new members are active by default
+        //this.feeToPay = 0;
     }
 
     public boolean changeName(String newName) {
@@ -135,4 +138,10 @@ public class Member {
         int randomNum = rand.nextInt((999999999 - 100000000) + 1) + 100000000;
         this.memberID = Integer.toString(randomNum);
     }
+    /*public int getFeeToPay() {
+        return feeToPay;
+    }
+    public void setFeeToPay(int feeToPay) {
+        this.feeToPay = feeToPay;
+    } */
 }

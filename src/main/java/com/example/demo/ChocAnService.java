@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+
+import java.util.Random;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.PrePersist;
@@ -17,10 +20,11 @@ public class ChocAnService {
     private int id;
 
     @Id
-    @Column(length = 6)
+    @Column(name = "serviceid", length = 6)
     private String serviceID;
-
+    @Column(name = "name", length = 20)
     private String name;
+    @Column(name = "fee", length = 6)
     private double fee;
 
     public ChocAnService(String name, double fee) {
@@ -46,9 +50,11 @@ public class ChocAnService {
     public void setFee(double fee) {
         this.fee = fee;
     }
-
-    @PrePersist
     public void generateServiceID() {
-        this.serviceID = String.format("%06d", id);
-    }    
+        Random rand = new Random();
+        // Adjust the range to generate a 6-digit number
+        int randomNum = rand.nextInt((999999 - 100000) + 1) + 100000;
+        this.serviceID = Integer.toString(randomNum);
+}
+
 }
