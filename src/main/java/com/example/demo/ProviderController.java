@@ -34,13 +34,27 @@ public class ProviderController {
         serviceRecordRepository.save(bill);
         //TODO add fee for the week and number of consultations with members to provider class and update them here 
         Provider provider = providerRepository.findProviderByProviderID(bill.getProviderNumber());
-        provider.setTotalFeeToBePaid(provider.getTotalFeeToBePaid() + service.getFee());
+        provider.setTotalFeeToBePaid(provider.getTotalFeeToBePaid() + /*service.getFee()*/ 10.0);
         providerRepository.save(provider);
         ServiceRecord testService = serviceRecordRepository.findServiceRecordByid(1);
         if (testService != null) {
             success = 1;
             System.out.println("Service added successfully");
             System.out.println(serviceRepository.findAll());
+            return ResponseEntity.ok(success);
+        }
+        return ResponseEntity.ok(success);
+    }
+
+    public ResponseEntity<Integer> editProviderCall(@RequestBody Provider provider1) {
+        int success = 0;
+        System.out.println(provider1.getProviderID() + ", " + provider1.getProviderName() + ", " + provider1.getProviderAddress() + ", " + provider1.getProviderCity() + ", " + provider1.getProviderStateCode() + ", " + provider1.getProviderZipCode() + ", " + provider1.getProviderEmail() + ", " + provider1.getUsername() + ", " + provider1.getPassword());
+        Provider provider2 = providerRepository.findProviderByProviderID(provider1.getProviderID());
+        if (provider2 != null) {
+            providerRepository.save(provider1);
+            success = 1;
+            System.out.println("Member edited successfully");
+            System.out.println(memberRepository.findAll());
             return ResponseEntity.ok(success);
         }
         return ResponseEntity.ok(success);

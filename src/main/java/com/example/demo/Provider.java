@@ -43,7 +43,7 @@ public class Provider {
     @Column(name = "password", length = 25)
     private String password;
     @Column(name = "total_fee_to_be_paid")
-    private double totalFeeToBePaid;
+    private double totalFeeToBePaid = 0.0;
     
     public Provider() {
         // Initialize any default values if needed
