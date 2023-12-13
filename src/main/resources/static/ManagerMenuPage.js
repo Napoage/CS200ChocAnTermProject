@@ -1,11 +1,31 @@
-function handleButtonClick(event, report) {
+function handleMemberButtonClick(event) {
     event.preventDefault();
-    fetch('http://localhost:8080/api/manager/reader', {
+    fetch('http://localhost:8080/api/inMemberReport/memberReport', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(report),
+        body: JSON.stringify(),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            if (data != 0) {
+              openPopup();
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+function handleProviderButtonClick(event) {
+    event.preventDefault();
+    fetch('http://localhost:8080/api/inProviderReport/providerReport', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(),
     })
         .then(response => response.json())
         .then(data => {
@@ -39,13 +59,10 @@ function openPopup() {
 
 // Attach the function to the button click event
 document.getElementById('providerReportButton').addEventListener('click', function (event) {
-    handleButtonClick(event,  "p");
-});
-document.getElementById('managerReportButton').addEventListener('click', function (event) {
-    handleButtonClick(event, "M");
+    handleProviderButtonClick(event);
 });
 document.getElementById('memberReportButton').addEventListener('click', function (event) {
-    handleButtonClick(event, "m");
+    handleMemberButtonClick(event);
 });
 document.getElementById('summaryReportButton').addEventListener('click', function (event) {
     handleButtonClick(event, "s");

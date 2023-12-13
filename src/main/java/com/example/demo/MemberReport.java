@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RestController
-@RequestMapping("/api/manager")
+@RequestMapping("/api/inMemberReport")
 public class MemberReport {
     @Autowired
     MemberRepository memberRepository;
@@ -27,7 +27,7 @@ public class MemberReport {
     @Autowired
     ProviderRepository providerRepository;
     
-    @PostMapping("/reader")   
+    @PostMapping("/memberReport")   
     public ResponseEntity<Integer> createMemberReport() {
         System.out.println("Creating member report");
         List<Member> listOfMembers = memberRepository.findAll();

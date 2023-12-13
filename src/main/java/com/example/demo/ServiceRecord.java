@@ -76,4 +76,7 @@ public class ServiceRecord {
     public void setComments(String comments) {
         this.comments = comments;
     }
+    public String getTime() {
+        return time;
+    }
 }

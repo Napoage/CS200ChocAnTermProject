@@ -1,0 +1,16 @@
+Provider Name: Nicholas
+Provider ID: 951660023
+Provider Address: 1130 Jack Warner Pkwy NE
+Provider City: Tuscaloosa
+Provider State: Al
+Provider ZIP: 35404
+Provider Email: napoag2671@ung.edu
+Service Date: 11/11/1111
+Date and Time Received By Computer: 2023-12-13 00:35:00
+Member Name:Jane Doe
+Member ID: 640988031
+Service Code: 1
+Fee to be paid: $10.00
+Total Number of Consultations with Members: 1
+Total Fee for Week: 10.0
+
