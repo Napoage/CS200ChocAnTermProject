@@ -53,5 +53,8 @@ public class ChocAnService {
     public void setServiceID(String serviceID) {
         this.serviceID = serviceID;
     }
+    public String getServiceID() {
+        return serviceID;
+    }
 
 }

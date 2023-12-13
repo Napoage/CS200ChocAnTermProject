@@ -3,6 +3,7 @@ package com.example.demo;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,7 @@ public class ProviderController {
     @PostMapping("/billChocAn") 
     public ResponseEntity<Integer> billChocAn (@RequestBody ServiceRecord bill) {
         int success = 0;
+        double feeToBePaid = 0;
         System.out.println(bill.getMemberNumber() + ", " + bill.getProviderNumber() + ", " + bill.getServiceCode() + ", " + bill.getComments() + ", " + bill.getDateRecorded() + ", " + bill.getDateRecorded()); 
         ChocAnService service = new ChocAnService(); 
         Member member = memberRepository.findMemberByMemberID(bill.getMemberNumber());
@@ -37,15 +39,17 @@ public class ProviderController {
             System.out.println("Member not found");
             return ResponseEntity.ok(success);
         }
-        service.setFee(10.0);
-        service.setName("Test Service");
-        service.setServiceID("123456");
+        service = serviceRepository.findChocAnServiceByServiceID(bill.getServiceCode());
         serviceRecordRepository.save(bill);
-        //TODO add member validation
         Provider provider = providerRepository.findProviderByProviderID(bill.getProviderNumber());
-        provider.setTotalFeeToBePaid(provider.getTotalFeeToBePaid() + /*service.getFee()*/ 10.0);
+        if (provider == null) {
+            System.out.println("Provider not found");
+            return ResponseEntity.ok(success);
+        }
+        feeToBePaid = service.getFee() + provider.getTotalFeeToBePaid();
+        provider.setTotalFeeToBePaid(feeToBePaid);
         providerRepository.save(provider);
-        ServiceRecord testService = serviceRecordRepository.findServiceRecordByid(1);
+        List<ServiceRecord> testService = serviceRecordRepository.findServiceRecordByTime(bill.getTime());
         if (testService != null) {
             success = 1;
             System.out.println("Service added successfully");
@@ -60,24 +64,15 @@ public class ProviderController {
         int success = 0;
         System.out.println("Requesting provider directory");
         try (PrintWriter writer = new PrintWriter(new FileWriter("provider_directory.txt"))) {
-            writer.println("Provider Directory");
-            writer.println("Service Code: 123456");
-            writer.println("Service Name: Test Service");
-            writer.println("Service Fee: $10.00");
-            writer.println();
-            writer.println("Service Code: 111111");
-            writer.println("Service Name: Therapy");
-            writer.println("Service Fee: $10.00");
-            writer.println();
-            writer.println("Service Code: 222222");
-            writer.println("Service Name: Group Therapy");
-            writer.println("Service Fee: $20.00");
-            writer.println();
-            writer.println("Service Code: 333333");
-            writer.println("Service Name: Hypnotism");
-            writer.println("Service Fee: $100.00");
+            for (ChocAnService service : serviceRepository.findAll()) {
+                writer.println("Service Name: " + service.getName());
+                writer.println("Service Fee: " + service.getFee());
+                writer.println("Service Code: " + service.getServiceID());
+                writer.println();
+            }
         } catch (IOException e) {
             e.printStackTrace();
+            return ResponseEntity.ok(success);
         }
         //TODO add provider directory
         return ResponseEntity.ok(1);

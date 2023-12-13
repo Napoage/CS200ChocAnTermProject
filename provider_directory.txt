@@ -1,16 +1,40 @@
-Provider Directory
-Service Code: 123456
 Service Name: Test Service
-Service Fee: $10.00
+Service Fee: 10.0
+Service Code: 123456
 
-Service Code: 111111
-Service Name: Therapy
-Service Fee: $10.00
+Service Name: Test Service 2
+Service Fee: 20.0
+Service Code: 123457
 
-Service Code: 222222
-Service Name: Group Therapy
-Service Fee: $20.00
+Service Name: Test Service 3
+Service Fee: 30.0
+Service Code: 123458
 
-Service Code: 333333
-Service Name: Hypnotism
-Service Fee: $100.00
+Service Name: Test Service 4
+Service Fee: 40.0
+Service Code: 123459
+
+Service Name: Test Service 5
+Service Fee: 50.0
+Service Code: 123460
+
+Service Name: Test Service 6
+Service Fee: 60.0
+Service Code: 123461
+
+Service Name: Test Service 7
+Service Fee: 70.0
+Service Code: 123462
+
+Service Name: Test Service 8
+Service Fee: 80.0
+Service Code: 123463
+
+Service Name: Test Service 9
+Service Fee: 90.0
+Service Code: 123464
+
+Service Name: Test Service 10
+Service Fee: 100.0
+Service Code: 123465
+

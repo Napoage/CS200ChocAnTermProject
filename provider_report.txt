@@ -1,3 +1,13 @@
+Provider Name: Zach
+Provider ID: 726989980
+Provider Address: 4534573 ja
+Provider City: kljl
+Provider State: MI
+Provider ZIP: 35345
+Provider Email: zach@zach
+Total Number of Consultations with Members: 1
+Total Fee for Week: 0.0
+
 Provider Name: Nicholas
 Provider ID: 951660023
 Provider Address: 1130 Jack Warner Pkwy NE

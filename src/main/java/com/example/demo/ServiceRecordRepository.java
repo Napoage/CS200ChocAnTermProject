@@ -22,4 +22,7 @@ public interface ServiceRecordRepository extends CrudRepository<ServiceRecord, I
 
     List<ServiceRecord> findServiceRecordByComments(String serviceComments);
     void deleteServiceRecordByComments(String serviceComments);
+
+    List<ServiceRecord> findServiceRecordByTime(String time);
+    void deleteServiceRecordByTime(String time);
 }
