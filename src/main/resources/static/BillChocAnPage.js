@@ -60,7 +60,7 @@ function openPopup() {
   popup.classList.add("open-popup");
   var button = document.getElementById('okButton');
   button.style.visibility = 'visible';
-}*
+}*/
 
 // Attach the function to the button click event
 document.getElementById('billChocAnButton').addEventListener('click', function (event) {

@@ -27,8 +27,10 @@ public class ProviderController {
     public ResponseEntity<Integer> billChocAn (@RequestBody ServiceRecord bill) {
         int success = 0;
         System.out.println(bill.getMemberNumber() + ", " + bill.getProviderNumber() + ", " + bill.getServiceCode() + ", " + bill.getComments() + ", " + bill.getDateRecorded() + ", " + bill.getDateRecorded()); 
-        ChocAnService service; 
-        service = serviceRepository.findChocAnServiceByServiceID(bill.getServiceCode());
+        ChocAnService service = new ChocAnService(); 
+        service.setFee(10.0);
+        service.setName("Test Service");
+        service.generateServiceID();
         serviceRecordRepository.save(bill);
         //TODO add fee for the week and number of consultations with members to provider class and update them here 
         Provider provider = providerRepository.findProviderByProviderID(bill.getProviderNumber());
