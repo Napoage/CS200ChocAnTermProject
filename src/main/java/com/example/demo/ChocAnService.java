@@ -50,11 +50,8 @@ public class ChocAnService {
     public void setFee(double fee) {
         this.fee = fee;
     }
-    public void generateServiceID() {
-        Random rand = new Random();
-        // Adjust the range to generate a 6-digit number
-        int randomNum = rand.nextInt((999999 - 100000) + 1) + 100000;
-        this.serviceID = Integer.toString(randomNum);
-}
+    public void setServiceID(String serviceID) {
+        this.serviceID = serviceID;
+    }
 
 }

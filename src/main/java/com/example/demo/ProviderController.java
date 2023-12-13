@@ -30,7 +30,7 @@ public class ProviderController {
         ChocAnService service = new ChocAnService(); 
         service.setFee(10.0);
         service.setName("Test Service");
-        service.generateServiceID();
+        service.setServiceID("123456");
         serviceRecordRepository.save(bill);
         //TODO add fee for the week and number of consultations with members to provider class and update them here 
         Provider provider = providerRepository.findProviderByProviderID(bill.getProviderNumber());
