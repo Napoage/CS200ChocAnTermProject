@@ -23,6 +23,8 @@ public class ProviderReport {
     ServiceRecordRepository serviceRecordRepository;
     @Autowired
     MemberRepository memberRepository;
+    @Autowired
+    ChocAnServiceRepository serviceRepository;
     @PostMapping("/providerReport")
     public ResponseEntity<Integer> createProviderReport() {
         System.out.println("Creating provider report");
@@ -47,10 +49,11 @@ public class ProviderReport {
                         writer.println("Member Name:" + member.getName());
                         writer.println("Member ID: " + member.getMemberID());
                         writer.println("Service Code: " + serviceRecord.getServiceCode());
-                        writer.println("Fee to be paid: $10.00");
+                        ChocAnService service = serviceRepository.findChocAnServiceByServiceID(serviceRecord.getServiceCode());
+                        writer.println("Fee to be paid: " + service.getFee());
                     }
                 }
-                writer.println("Total Number of Consultations with Members: 1");
+                writer.println("Total Number of Consultations with Members: " + provider.getTotalNumberOfConsultations());
                 writer.println("Total Fee for Week: " + provider.getTotalFeeToBePaid());
                 writer.println();
             }

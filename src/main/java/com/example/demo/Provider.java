@@ -44,6 +44,8 @@ public class Provider {
     private String password;
     @Column(name = "total_fee_to_be_paid")
     private double totalFeeToBePaid = 0.0;
+    @Column(name = "total_number_of_consultations")
+    private int totalNumberOfConsultations = 0;
     
     public Provider() {
         // Initialize any default values if needed
@@ -148,6 +150,12 @@ public class Provider {
     }
     public void setTotalFeeToBePaid(double totalFeeToBePaid) {
         this.totalFeeToBePaid =  totalFeeToBePaid;
+    }
+    public int getTotalNumberOfConsultations() {
+        return totalNumberOfConsultations;
+    }
+    public void setTotalNumberOfConsultations(int totalNumberOfConsultations) {
+        this.totalNumberOfConsultations = totalNumberOfConsultations;
     }
 
     

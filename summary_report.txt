@@ -1,5 +1,7 @@
-Provider Name: Nicholas
+Provider Name: Zach
 Number Of Consultations: 1
-Total Number of Providers who provided services: 1
-Total Number of Consultations: 1
-Total Fee for Week: 10.0
+Provider Name: Nicholas Andrew Poage
+Number Of Consultations: 2
+Total Number of Providers who provided services: 2
+Total Number of Consultations: 3
+Total Fee for Week: 230.0

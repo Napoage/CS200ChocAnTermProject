@@ -30,7 +30,7 @@ public class ProviderController {
 
     @PostMapping("/billChocAn") 
     public ResponseEntity<Integer> billChocAn (@RequestBody ServiceRecord bill) {
-        int success = 0;
+        int success = 0, numberOfConsultations = 0;
         double feeToBePaid = 0;
         System.out.println(bill.getMemberNumber() + ", " + bill.getProviderNumber() + ", " + bill.getServiceCode() + ", " + bill.getComments() + ", " + bill.getDateRecorded() + ", " + bill.getDateRecorded()); 
         ChocAnService service = new ChocAnService(); 
@@ -46,8 +46,10 @@ public class ProviderController {
             System.out.println("Provider not found");
             return ResponseEntity.ok(success);
         }
+        numberOfConsultations = provider.getTotalNumberOfConsultations() + 1;
         feeToBePaid = service.getFee() + provider.getTotalFeeToBePaid();
         provider.setTotalFeeToBePaid(feeToBePaid);
+        provider.setTotalNumberOfConsultations(numberOfConsultations);
         providerRepository.save(provider);
         List<ServiceRecord> testService = serviceRecordRepository.findServiceRecordByTime(bill.getTime());
         if (testService != null) {

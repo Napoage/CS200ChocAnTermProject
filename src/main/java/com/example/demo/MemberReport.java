@@ -26,6 +26,8 @@ public class MemberReport {
     ServiceRecordRepository chocAnServiceRepository;
     @Autowired
     ProviderRepository providerRepository;
+    @Autowired
+    ChocAnServiceRepository serviceRepository;
     
     @PostMapping("/memberReport")   
     public ResponseEntity<Integer> createMemberReport() {
@@ -48,7 +50,8 @@ public class MemberReport {
                         writer.println("Service Date: " + serviceRecord.getDate());
                         Provider provider = providerRepository.findProviderByProviderID(serviceRecord.getProviderNumber());
                         writer.println("Provider Name: " + provider.getProviderName());
-                        writer.println("Service Name: Test Service");
+                        ChocAnService service = serviceRepository.findChocAnServiceByServiceID(serviceRecord.getServiceCode());
+                        writer.println("Service Name: " + service.getName());
                     }
                 }
                 writer.println();

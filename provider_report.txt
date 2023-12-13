@@ -1,26 +1,38 @@
 Provider Name: Zach
-Provider ID: 726989980
+Provider ID: 639805282
 Provider Address: 4534573 ja
 Provider City: kljl
 Provider State: MI
 Provider ZIP: 35345
 Provider Email: zach@zach
+Service Date: 88/88/8888
+Date and Time Received By Computer: 2023-12-13 10:30:35
+Member Name:Maria Villacorta
+Member ID: 691688690
+Service Code: 123462
+Fee to be paid: 70.0
 Total Number of Consultations with Members: 1
-Total Fee for Week: 0.0
+Total Fee for Week: 70.0
 
-Provider Name: Nicholas
-Provider ID: 951660023
+Provider Name: Nicholas Andrew Poage
+Provider ID: 903837744
 Provider Address: 1130 Jack Warner Pkwy NE
-Provider City: Tuscaloosa
-Provider State: Al
+Provider City: Not Hispan
+Provider State: Ge
 Provider ZIP: 35404
-Provider Email: napoag2671@ung.edu
+Provider Email: napoage@crimson.ua.edu
 Service Date: 11/11/1111
-Date and Time Received By Computer: 2023-12-13 00:35:00
-Member Name:Jane Doe
-Member ID: 640988031
-Service Code: 1
-Fee to be paid: $10.00
-Total Number of Consultations with Members: 1
-Total Fee for Week: 10.0
+Date and Time Received By Computer: 2023-12-13 10:29:13
+Member Name:jaxson bil
+Member ID: 170824024
+Service Code: 123463
+Fee to be paid: 80.0
+Service Date: 11/11/2222
+Date and Time Received By Computer: 2023-12-13 10:29:57
+Member Name:Maria Villacorta
+Member ID: 691688690
+Service Code: 123463
+Fee to be paid: 80.0
+Total Number of Consultations with Members: 2
+Total Fee for Week: 160.0
 

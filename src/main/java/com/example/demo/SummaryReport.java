@@ -37,9 +37,9 @@ public class SummaryReport {
             for (Provider provider : listOfProviders) {
                 if(provider.getTotalFeeToBePaid() > 0) {
                     writer.println("Provider Name: " + provider.getProviderName());
-                    writer.println("Number Of Consultations: 1");
+                    writer.println("Number Of Consultations: " + provider.getTotalNumberOfConsultations());
                     totalNumberOfProvidersProvidingService++;
-                    totalNumberOfConsultations++;
+                    totalNumberOfConsultations += provider.getTotalNumberOfConsultations();
                     totalFeeForWeek += provider.getTotalFeeToBePaid();
                 }
             }
