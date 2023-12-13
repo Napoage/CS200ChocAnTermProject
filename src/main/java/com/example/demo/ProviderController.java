@@ -32,6 +32,11 @@ public class ProviderController {
         int success = 0;
         System.out.println(bill.getMemberNumber() + ", " + bill.getProviderNumber() + ", " + bill.getServiceCode() + ", " + bill.getComments() + ", " + bill.getDateRecorded() + ", " + bill.getDateRecorded()); 
         ChocAnService service = new ChocAnService(); 
+        Member member = memberRepository.findMemberByMemberID(bill.getMemberNumber());
+        if (member == null) {
+            System.out.println("Member not found");
+            return ResponseEntity.ok(success);
+        }
         service.setFee(10.0);
         service.setName("Test Service");
         service.setServiceID("123456");
