@@ -1,18 +1,66 @@
-Provider Name: Zach
-Provider ID: 639805282
-Provider Address: 4534573 ja
-Provider City: kljl
-Provider State: MI
-Provider ZIP: 35345
-Provider Email: zach@zach
+Provider Name: NEW
+Provider ID: 194920811
+Provider Address: NEW
+Provider City: NEW
+Provider State: NE
+Provider ZIP: 00000
+Provider Email: NEW
 Service Date: 88/88/8888
-Date and Time Received By Computer: 2023-12-13 10:30:35
-Member Name:Maria Villacorta
-Member ID: 691688690
-Service Code: 123462
-Fee to be paid: 70.0
+Date and Time Received By Computer: 2023-12-14 09:21:00
+Member Name:Not Jane Doe
+Member ID: 164734003
+Service Code: 123460
+Fee to be paid: 50.0
+Total Number of Consultations with Members: 0
+Total Fee for Week: 0.0
+
+Provider Name: AProvider
+Provider ID: 257937652
+Provider Address: llll
+Provider City: ll
+Provider State: ll
+Provider ZIP: lll
+Provider Email: lll
+Service Date: 11/11/1111
+Date and Time Received By Computer: 2023-12-14 10:12:14
+Member Name:AMember
+Member ID: 199594376
+Service Code: 123461
+Fee to be paid: 60.0
 Total Number of Consultations with Members: 1
-Total Fee for Week: 70.0
+Total Fee for Week: 60.0
+
+Provider Name: New Provider
+Provider ID: 689506579
+Provider Address: nnnn
+Provider City: nn
+Provider State: nn
+Provider ZIP: nnnn
+Provider Email: nnn
+Service Date: 88/88/8888
+Date and Time Received By Computer: 2023-12-14 09:59:37
+Member Name:New Member
+Member ID: 562814493
+Service Code: 123461
+Fee to be paid: 60.0
+Total Number of Consultations with Members: 1
+Total Fee for Week: 60.0
+
+Provider Name: Ryan notGosling
+Provider ID: 735510496
+Provider Address: 333 hollywood dr
+Provider City: las vegas
+Provider State: AL
+Provider ZIP: 77777
+Provider Email: rngoslin@gmail.com
+Service Date: 11/11/1111
+Date and Time Received By Computer: 2023-12-14 10:22:29
+Member Name:Joshua Nover
+Member ID: 577797264
+Service Code: 123463
+Fee to be paid: 80.0
+Total Number of Consultations with Members: 1
+Total Fee for Week: 80.0
 
 Provider Name: Nicholas Andrew Poage
 Provider ID: 903837744
@@ -29,10 +77,23 @@ Service Code: 123463
 Fee to be paid: 80.0
 Service Date: 11/11/2222
 Date and Time Received By Computer: 2023-12-13 10:29:57
-Member Name:Maria Villacorta
-Member ID: 691688690
-Service Code: 123463
-Fee to be paid: 80.0
+Member information not found for Member ID: 691688690
 Total Number of Consultations with Members: 2
 Total Fee for Week: 160.0
+
+Provider Name: Lady Smith
+Provider ID: 922471101
+Provider Address: 777 Casino Lane
+Provider City: Vegas
+Provider State: NV
+Provider ZIP: 55555
+Provider Email: Lsmith@bellsouth.net
+Service Date: 88/88/8888
+Date and Time Received By Computer: 2023-12-14 09:50:24
+Member Name:Bill person
+Member ID: 669651426
+Service Code: 123461
+Fee to be paid: 60.0
+Total Number of Consultations with Members: 1
+Total Fee for Week: 60.0
 

@@ -23,6 +23,7 @@ public class OperatorController {
     private ProviderRepository providerRepository;
 
     @PostMapping("/addMember")
+    @Transactional
     public ResponseEntity<Integer> addMemberCall(
     @RequestParam String name,
     @RequestParam String email,
@@ -63,6 +64,7 @@ public class OperatorController {
     }
  
     @PostMapping("/editMember")
+    @Transactional
     public ResponseEntity<Integer> editMemberCall(
     @RequestParam String memberID,
     @RequestParam String name,
@@ -89,6 +91,7 @@ public class OperatorController {
         return ResponseEntity.ok(success);
   }
     @PostMapping("/addProvider")
+    @Transactional
     public ResponseEntity<Integer> addProviderCall(@RequestBody Provider provider) { 
         provider.generateProviderID();
         provider.setProviderStatus(true);
@@ -123,6 +126,7 @@ public class OperatorController {
         return ResponseEntity.ok(success);
     }
     @PostMapping("/editProvider")
+    @Transactional
     public ResponseEntity<Integer> editProviderCall(@RequestBody Provider provider1) {
         int success = 0;
         System.out.println(provider1.getProviderID() + ", " + provider1.getProviderName() + ", " + provider1.getProviderAddress() + ", " + provider1.getProviderCity() + ", " + provider1.getProviderStateCode() + ", " + provider1.getProviderZipCode() + ", " + provider1.getProviderEmail() + ", " + provider1.getUsername() + ", " + provider1.getPassword());

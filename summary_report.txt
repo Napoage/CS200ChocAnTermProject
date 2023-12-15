@@ -1,7 +1,13 @@
-Provider Name: Zach
+Provider Name: AProvider
+Number Of Consultations: 1
+Provider Name: New Provider
+Number Of Consultations: 1
+Provider Name: Ryan notGosling
 Number Of Consultations: 1
 Provider Name: Nicholas Andrew Poage
 Number Of Consultations: 2
-Total Number of Providers who provided services: 2
-Total Number of Consultations: 3
-Total Fee for Week: 230.0
+Provider Name: Lady Smith
+Number Of Consultations: 1
+Total Number of Providers who provided services: 5
+Total Number of Consultations: 6
+Total Fee for Week: 420.0

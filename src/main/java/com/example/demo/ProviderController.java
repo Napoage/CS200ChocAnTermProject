@@ -35,6 +35,7 @@ public class ProviderController {
         System.out.println(bill.getMemberNumber() + ", " + bill.getProviderNumber() + ", " + bill.getServiceCode() + ", " + bill.getComments() + ", " + bill.getDateRecorded() + ", " + bill.getDateRecorded()); 
         ChocAnService service = new ChocAnService(); 
         Member member = memberRepository.findMemberByMemberID(bill.getMemberNumber());
+        //member validation
         if (member == null) {
             System.out.println("Member not found");
             return ResponseEntity.ok(success);

@@ -46,11 +46,16 @@ public class ProviderReport {
                         writer.println("Service Date: " + serviceRecord.getDate());
                         writer.println("Date and Time Received By Computer: " + serviceRecord.getTime());
                         Member member = memberRepository.findMemberByMemberID(serviceRecord.getMemberNumber());
-                        writer.println("Member Name:" + member.getName());
-                        writer.println("Member ID: " + member.getMemberID());
-                        writer.println("Service Code: " + serviceRecord.getServiceCode());
-                        ChocAnService service = serviceRepository.findChocAnServiceByServiceID(serviceRecord.getServiceCode());
-                        writer.println("Fee to be paid: " + service.getFee());
+                        if (member != null) {
+                            writer.println("Member Name:" + member.getName());
+                            writer.println("Member ID: " + member.getMemberID());
+                            writer.println("Service Code: " + serviceRecord.getServiceCode());
+                            ChocAnService service = serviceRepository.findChocAnServiceByServiceID(serviceRecord.getServiceCode());
+                            writer.println("Fee to be paid: " + service.getFee());
+                        } else {
+                            // Handle the case where member is null, log an error, or take appropriate action
+                            writer.println("Member information not found for Member ID: " + serviceRecord.getMemberNumber());
+                        }
                     }
                 }
                 writer.println("Total Number of Consultations with Members: " + provider.getTotalNumberOfConsultations());

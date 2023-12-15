@@ -30,9 +30,10 @@ function handleButtonClick(event) {
             .then(response => response.json())
             .then(data => {
                 if(data == 0){
-openPopup();} else {
-  openPopup2();
-}
+                    openPopup();
+                } else {
+                    openPopup2();
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
